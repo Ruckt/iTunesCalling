@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D8672BF0-5B6C-4CFD-8D62-34D4D3B5B7F5</string>
+	<key>IDESourceControlProjectName</key>
+	<string>iTunesCalling</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DD67694E-A998-4CCE-AA54-34808A3DD586</key>
+		<string>ssh://github.com/Ruckt/iTunesCalling.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iTunesCalling/iTunesCalling.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DD67694E-A998-4CCE-AA54-34808A3DD586</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/Ruckt/iTunesCalling.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DD67694E-A998-4CCE-AA54-34808A3DD586</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DD67694E-A998-4CCE-AA54-34808A3DD586</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iTunesCalling</string>
+		</dict>
+	</array>
+</dict>
+</plist>
