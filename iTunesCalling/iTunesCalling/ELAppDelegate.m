@@ -7,16 +7,8 @@
 //
 
 #import "ELAppDelegate.h"
-#import <AFNetworking.h>
+#import "ELAppListTableVC.h"
 
-
-NSString* const ITunesURL = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topgrossingapplications/sf=143441/limit=25/json";
-
-
-@interface ELAppDelegate ()
-@property (strong, nonatomic) NSURLSession *iTunesDownloadSession;
-
-@end
 
 @implementation ELAppDelegate
 
@@ -25,12 +17,19 @@ NSString* const ITunesURL = @"http://ax.itunes.apple.com/WebObjects/MZStoreServi
 {
     
     [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
-    [self startiTunesFetch];
-    
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    
+    
+    self.viewController = [[UINavigationController alloc] initWithRootViewController:[[ELAppListTableVC alloc] initWithStyle:UITableViewStylePlain]];
+    
+    self.window.rootViewController = self.viewController;
+
+    
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -64,24 +63,6 @@ NSString* const ITunesURL = @"http://ax.itunes.apple.com/WebObjects/MZStoreServi
 }
 
 
-#pragma mark - iTunes Fetching
-
-- (void)startiTunesFetch
-{
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-     NSLog(@"JSON:");
-    [manager GET:ITunesURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-        //NSDictionary *responseDictionary = (NSDictionary *)responseObject;
-        
-        //NSLog(@"dictionary: %@", responseDictionary);
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
-    
-}
 
 
 @end

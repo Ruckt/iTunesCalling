@@ -1,1143 +1,565 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>480D79558EC248F598BFA4D3</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Pods-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>5BB2F053A3914121B83D2CE6</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>AD52616FB9BE49A49053CF1E</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>DC2DD168801A45DAA4A37E86</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5BB2F053A3914121B83D2CE6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E14A1FE79ADC408AB53C877E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Pods.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E22190F1195C5E34001004F4</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E2219105195C5E34001004F4</string>
-				<string>E2219122195C5E34001004F4</string>
-				<string>E22190FC195C5E34001004F4</string>
-				<string>E22190FB195C5E34001004F4</string>
-				<string>E14A1FE79ADC408AB53C877E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E22190F2195C5E34001004F4</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>CLASSPREFIX</key>
-				<string>EL</string>
-				<key>LastUpgradeCheck</key>
-				<string>0510</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>Edan Lichtenstein</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>E2219119195C5E34001004F4</key>
-					<dict>
-						<key>TestTargetID</key>
-						<string>E22190F9195C5E34001004F4</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>E22190F5195C5E34001004F4</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>E22190F1195C5E34001004F4</string>
-			<key>productRefGroup</key>
-			<string>E22190FB195C5E34001004F4</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>E22190F9195C5E34001004F4</string>
-				<string>E2219119195C5E34001004F4</string>
-			</array>
-		</dict>
-		<key>E22190F5195C5E34001004F4</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>E221912A195C5E34001004F4</string>
-				<string>E221912B195C5E34001004F4</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>E22190F6195C5E34001004F4</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>E28B9477195CF9DC0076E845</string>
-				<string>E221910C195C5E34001004F4</string>
-				<string>E2219110195C5E34001004F4</string>
-				<string>E2219113195C5E34001004F4</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>E22190F7195C5E34001004F4</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>E2219100195C5E34001004F4</string>
-				<string>E2219104195C5E34001004F4</string>
-				<string>E2219102195C5E34001004F4</string>
-				<string>E22190FE195C5E34001004F4</string>
-				<string>DC2DD168801A45DAA4A37E86</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>E22190F8195C5E34001004F4</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>E2219135195C6458001004F4</string>
-				<string>E221910A195C5E34001004F4</string>
-				<string>E2219115195C5E34001004F4</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>E22190F9195C5E34001004F4</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>E221912C195C5E34001004F4</string>
-			<key>buildPhases</key>
-			<array>
-				<string>AD52616FB9BE49A49053CF1E</string>
-				<string>E22190F6195C5E34001004F4</string>
-				<string>E22190F7195C5E34001004F4</string>
-				<string>E22190F8195C5E34001004F4</string>
-				<string>480D79558EC248F598BFA4D3</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>iTunesCalling</string>
-			<key>productName</key>
-			<string>iTunesCalling</string>
-			<key>productReference</key>
-			<string>E22190FA195C5E34001004F4</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>E22190FA195C5E34001004F4</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>iTunesCalling.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>E22190FB195C5E34001004F4</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E22190FA195C5E34001004F4</string>
-				<string>E221911A195C5E34001004F4</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E22190FC195C5E34001004F4</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E22190FD195C5E34001004F4</string>
-				<string>E22190FF195C5E34001004F4</string>
-				<string>E2219101195C5E34001004F4</string>
-				<string>E2219103195C5E34001004F4</string>
-				<string>E221911B195C5E34001004F4</string>
-				<string>5BB2F053A3914121B83D2CE6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E22190FD195C5E34001004F4</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>E22190FE195C5E34001004F4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E22190FD195C5E34001004F4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E22190FF195C5E34001004F4</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreGraphics.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CoreGraphics.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>E2219100195C5E34001004F4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E22190FF195C5E34001004F4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E2219101195C5E34001004F4</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>UIKit.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/UIKit.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>E2219102195C5E34001004F4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E2219101195C5E34001004F4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E2219103195C5E34001004F4</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreData.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CoreData.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>E2219104195C5E34001004F4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E2219103195C5E34001004F4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E2219105195C5E34001004F4</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E221910E195C5E34001004F4</string>
-				<string>E221910F195C5E34001004F4</string>
-				<string>E2219114195C5E34001004F4</string>
-				<string>E2219134195C6458001004F4</string>
-				<string>E2219111195C5E34001004F4</string>
-				<string>E2219106195C5E34001004F4</string>
-				<string>E28B9475195CF9DC0076E845</string>
-				<string>E28B9476195CF9DC0076E845</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>iTunesCalling</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E2219106195C5E34001004F4</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E2219107195C5E34001004F4</string>
-				<string>E2219108195C5E34001004F4</string>
-				<string>E221910B195C5E34001004F4</string>
-				<string>E221910D195C5E34001004F4</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E2219107195C5E34001004F4</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>iTunesCalling-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E2219108195C5E34001004F4</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E2219109195C5E34001004F4</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E2219109195C5E34001004F4</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E221910A195C5E34001004F4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E2219108195C5E34001004F4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E221910B195C5E34001004F4</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>main.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E221910C195C5E34001004F4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E221910B195C5E34001004F4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E221910D195C5E34001004F4</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>iTunesCalling-Prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E221910E195C5E34001004F4</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>ELAppDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E221910F195C5E34001004F4</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>ELAppDelegate.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E2219110195C5E34001004F4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E221910F195C5E34001004F4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E2219111195C5E34001004F4</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E2219112195C5E34001004F4</string>
-			</array>
-			<key>currentVersion</key>
-			<string>E2219112195C5E34001004F4</string>
-			<key>isa</key>
-			<string>XCVersionGroup</string>
-			<key>path</key>
-			<string>iTunesCalling.xcdatamodeld</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-			<key>versionGroupType</key>
-			<string>wrapper.xcdatamodel</string>
-		</dict>
-		<key>E2219112195C5E34001004F4</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.xcdatamodel</string>
-			<key>path</key>
-			<string>iTunesCalling.xcdatamodel</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E2219113195C5E34001004F4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E2219111195C5E34001004F4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E2219114195C5E34001004F4</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Images.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E2219115195C5E34001004F4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E2219114195C5E34001004F4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E2219116195C5E34001004F4</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>E2219129195C5E34001004F4</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>E2219117195C5E34001004F4</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>E221911C195C5E34001004F4</string>
-				<string>E221911F195C5E34001004F4</string>
-				<string>E221911E195C5E34001004F4</string>
-				<string>E221911D195C5E34001004F4</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>E2219118195C5E34001004F4</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>E2219127195C5E34001004F4</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>E2219119195C5E34001004F4</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>E221912F195C5E34001004F4</string>
-			<key>buildPhases</key>
-			<array>
-				<string>E2219116195C5E34001004F4</string>
-				<string>E2219117195C5E34001004F4</string>
-				<string>E2219118195C5E34001004F4</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>E2219121195C5E34001004F4</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>iTunesCallingTests</string>
-			<key>productName</key>
-			<string>iTunesCallingTests</string>
-			<key>productReference</key>
-			<string>E221911A195C5E34001004F4</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>E221911A195C5E34001004F4</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>iTunesCallingTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>E221911B195C5E34001004F4</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>XCTest.framework</string>
-			<key>path</key>
-			<string>Library/Frameworks/XCTest.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>E221911C195C5E34001004F4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E221911B195C5E34001004F4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E221911D195C5E34001004F4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E22190FD195C5E34001004F4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E221911E195C5E34001004F4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E2219101195C5E34001004F4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E221911F195C5E34001004F4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E2219103195C5E34001004F4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E2219120195C5E34001004F4</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>E22190F2195C5E34001004F4</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>E22190F9195C5E34001004F4</string>
-			<key>remoteInfo</key>
-			<string>iTunesCalling</string>
-		</dict>
-		<key>E2219121195C5E34001004F4</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>E22190F9195C5E34001004F4</string>
-			<key>targetProxy</key>
-			<string>E2219120195C5E34001004F4</string>
-		</dict>
-		<key>E2219122195C5E34001004F4</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E2219128195C5E34001004F4</string>
-				<string>E2219123195C5E34001004F4</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>iTunesCallingTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E2219123195C5E34001004F4</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E2219124195C5E34001004F4</string>
-				<string>E2219125195C5E34001004F4</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E2219124195C5E34001004F4</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>iTunesCallingTests-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E2219125195C5E34001004F4</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E2219126195C5E34001004F4</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E2219126195C5E34001004F4</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E2219127195C5E34001004F4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E2219125195C5E34001004F4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E2219128195C5E34001004F4</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>iTunesCallingTests.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E2219129195C5E34001004F4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E2219128195C5E34001004F4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E221912A195C5E34001004F4</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>E221912B195C5E34001004F4</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>E221912C195C5E34001004F4</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>E221912D195C5E34001004F4</string>
-				<string>E221912E195C5E34001004F4</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>E221912D195C5E34001004F4</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>E14A1FE79ADC408AB53C877E</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>iTunesCalling/iTunesCalling-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>iTunesCalling/iTunesCalling-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>E221912E195C5E34001004F4</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>E14A1FE79ADC408AB53C877E</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>iTunesCalling/iTunesCalling-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>iTunesCalling/iTunesCalling-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>E221912F195C5E34001004F4</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>E2219130195C5E34001004F4</string>
-				<string>E2219131195C5E34001004F4</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>E2219130195C5E34001004F4</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/iTunesCalling.app/iTunesCalling</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>iTunesCalling/iTunesCalling-Prefix.pch</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>INFOPLIST_FILE</key>
-				<string>iTunesCallingTests/iTunesCallingTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>E2219131195C5E34001004F4</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/iTunesCalling.app/iTunesCalling</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>iTunesCalling/iTunesCalling-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>iTunesCallingTests/iTunesCallingTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>E2219134195C6458001004F4</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>ELMain.storyboard</string>
-			<key>path</key>
-			<string>../ELMain.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E2219135195C6458001004F4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E2219134195C6458001004F4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E28B9475195CF9DC0076E845</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>ELDataStore.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E28B9476195CF9DC0076E845</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>ELDataStore.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E28B9477195CF9DC0076E845</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E28B9476195CF9DC0076E845</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>E22190F2195C5E34001004F4</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DC2DD168801A45DAA4A37E86 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB2F053A3914121B83D2CE6 /* libPods.a */; };
+		E22190FE195C5E34001004F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E22190FD195C5E34001004F4 /* Foundation.framework */; };
+		E2219100195C5E34001004F4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E22190FF195C5E34001004F4 /* CoreGraphics.framework */; };
+		E2219102195C5E34001004F4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2219101195C5E34001004F4 /* UIKit.framework */; };
+		E2219104195C5E34001004F4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2219103195C5E34001004F4 /* CoreData.framework */; };
+		E221910A195C5E34001004F4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2219108195C5E34001004F4 /* InfoPlist.strings */; };
+		E221910C195C5E34001004F4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E221910B195C5E34001004F4 /* main.m */; };
+		E2219110195C5E34001004F4 /* ELAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E221910F195C5E34001004F4 /* ELAppDelegate.m */; };
+		E2219113195C5E34001004F4 /* iTunesCalling.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2219111195C5E34001004F4 /* iTunesCalling.xcdatamodeld */; };
+		E2219115195C5E34001004F4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2219114195C5E34001004F4 /* Images.xcassets */; };
+		E221911C195C5E34001004F4 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E221911B195C5E34001004F4 /* XCTest.framework */; };
+		E221911D195C5E34001004F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E22190FD195C5E34001004F4 /* Foundation.framework */; };
+		E221911E195C5E34001004F4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2219101195C5E34001004F4 /* UIKit.framework */; };
+		E221911F195C5E34001004F4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2219103195C5E34001004F4 /* CoreData.framework */; };
+		E2219127195C5E34001004F4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2219125195C5E34001004F4 /* InfoPlist.strings */; };
+		E2219129195C5E34001004F4 /* iTunesCallingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2219128195C5E34001004F4 /* iTunesCallingTests.m */; };
+		E2219135195C6458001004F4 /* ELMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2219134195C6458001004F4 /* ELMain.storyboard */; };
+		E28B9477195CF9DC0076E845 /* ELDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E28B9476195CF9DC0076E845 /* ELDataStore.m */; };
+		E2B9F7DD1969013E00411C1A /* ELiTunesDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B9F7DC1969013E00411C1A /* ELiTunesDataProvider.m */; };
+		E2B9F7E4196906EE00411C1A /* ELAppListTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B9F7E3196906EE00411C1A /* ELAppListTableVC.m */; };
+		E2B9F7EA1969195C00411C1A /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B9F7E91969195C00411C1A /* Application.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E2219120195C5E34001004F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E22190F2195C5E34001004F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E22190F9195C5E34001004F4;
+			remoteInfo = iTunesCalling;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5BB2F053A3914121B83D2CE6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E14A1FE79ADC408AB53C877E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		E22190FA195C5E34001004F4 /* iTunesCalling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesCalling.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E22190FD195C5E34001004F4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E22190FF195C5E34001004F4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E2219101195C5E34001004F4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E2219103195C5E34001004F4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E2219107195C5E34001004F4 /* iTunesCalling-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iTunesCalling-Info.plist"; sourceTree = "<group>"; };
+		E2219109195C5E34001004F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E221910B195C5E34001004F4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E221910D195C5E34001004F4 /* iTunesCalling-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iTunesCalling-Prefix.pch"; sourceTree = "<group>"; };
+		E221910E195C5E34001004F4 /* ELAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELAppDelegate.h; sourceTree = "<group>"; };
+		E221910F195C5E34001004F4 /* ELAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELAppDelegate.m; sourceTree = "<group>"; };
+		E2219112195C5E34001004F4 /* iTunesCalling.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iTunesCalling.xcdatamodel; sourceTree = "<group>"; };
+		E2219114195C5E34001004F4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E221911A195C5E34001004F4 /* iTunesCallingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTunesCallingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E221911B195C5E34001004F4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		E2219124195C5E34001004F4 /* iTunesCallingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iTunesCallingTests-Info.plist"; sourceTree = "<group>"; };
+		E2219126195C5E34001004F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E2219128195C5E34001004F4 /* iTunesCallingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iTunesCallingTests.m; sourceTree = "<group>"; };
+		E2219134195C6458001004F4 /* ELMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ELMain.storyboard; path = ../ELMain.storyboard; sourceTree = "<group>"; };
+		E28B9475195CF9DC0076E845 /* ELDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDataStore.h; sourceTree = "<group>"; };
+		E28B9476195CF9DC0076E845 /* ELDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDataStore.m; sourceTree = "<group>"; };
+		E2B9F7DB1969013E00411C1A /* ELiTunesDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELiTunesDataProvider.h; sourceTree = "<group>"; };
+		E2B9F7DC1969013E00411C1A /* ELiTunesDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELiTunesDataProvider.m; sourceTree = "<group>"; };
+		E2B9F7E2196906EE00411C1A /* ELAppListTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAppListTableVC.h; sourceTree = "<group>"; };
+		E2B9F7E3196906EE00411C1A /* ELAppListTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAppListTableVC.m; sourceTree = "<group>"; };
+		E2B9F7E81969195C00411C1A /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
+		E2B9F7E91969195C00411C1A /* Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Application.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E22190F7195C5E34001004F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2219100195C5E34001004F4 /* CoreGraphics.framework in Frameworks */,
+				E2219104195C5E34001004F4 /* CoreData.framework in Frameworks */,
+				E2219102195C5E34001004F4 /* UIKit.framework in Frameworks */,
+				E22190FE195C5E34001004F4 /* Foundation.framework in Frameworks */,
+				DC2DD168801A45DAA4A37E86 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2219117195C5E34001004F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E221911C195C5E34001004F4 /* XCTest.framework in Frameworks */,
+				E221911F195C5E34001004F4 /* CoreData.framework in Frameworks */,
+				E221911E195C5E34001004F4 /* UIKit.framework in Frameworks */,
+				E221911D195C5E34001004F4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E22190F1195C5E34001004F4 = {
+			isa = PBXGroup;
+			children = (
+				E2219105195C5E34001004F4 /* iTunesCalling */,
+				E2219122195C5E34001004F4 /* iTunesCallingTests */,
+				E22190FC195C5E34001004F4 /* Frameworks */,
+				E22190FB195C5E34001004F4 /* Products */,
+				E14A1FE79ADC408AB53C877E /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		E22190FB195C5E34001004F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E22190FA195C5E34001004F4 /* iTunesCalling.app */,
+				E221911A195C5E34001004F4 /* iTunesCallingTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E22190FC195C5E34001004F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E22190FD195C5E34001004F4 /* Foundation.framework */,
+				E22190FF195C5E34001004F4 /* CoreGraphics.framework */,
+				E2219101195C5E34001004F4 /* UIKit.framework */,
+				E2219103195C5E34001004F4 /* CoreData.framework */,
+				E221911B195C5E34001004F4 /* XCTest.framework */,
+				5BB2F053A3914121B83D2CE6 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E2219105195C5E34001004F4 /* iTunesCalling */ = {
+			isa = PBXGroup;
+			children = (
+				E221910E195C5E34001004F4 /* ELAppDelegate.h */,
+				E221910F195C5E34001004F4 /* ELAppDelegate.m */,
+				E2B9F7DB1969013E00411C1A /* ELiTunesDataProvider.h */,
+				E2B9F7DC1969013E00411C1A /* ELiTunesDataProvider.m */,
+				E2219114195C5E34001004F4 /* Images.xcassets */,
+				E2219134195C6458001004F4 /* ELMain.storyboard */,
+				E2B9F7E1196904C300411C1A /* View Controllers */,
+				E2B9F7DA1968DE3400411C1A /* Core Data */,
+				E2219106195C5E34001004F4 /* Supporting Files */,
+			);
+			path = iTunesCalling;
+			sourceTree = "<group>";
+		};
+		E2219106195C5E34001004F4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E2219107195C5E34001004F4 /* iTunesCalling-Info.plist */,
+				E2219108195C5E34001004F4 /* InfoPlist.strings */,
+				E221910B195C5E34001004F4 /* main.m */,
+				E221910D195C5E34001004F4 /* iTunesCalling-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E2219122195C5E34001004F4 /* iTunesCallingTests */ = {
+			isa = PBXGroup;
+			children = (
+				E2219128195C5E34001004F4 /* iTunesCallingTests.m */,
+				E2219123195C5E34001004F4 /* Supporting Files */,
+			);
+			path = iTunesCallingTests;
+			sourceTree = "<group>";
+		};
+		E2219123195C5E34001004F4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E2219124195C5E34001004F4 /* iTunesCallingTests-Info.plist */,
+				E2219125195C5E34001004F4 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E2B9F7DA1968DE3400411C1A /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				E2B9F7E81969195C00411C1A /* Application.h */,
+				E2B9F7E91969195C00411C1A /* Application.m */,
+				E2219111195C5E34001004F4 /* iTunesCalling.xcdatamodeld */,
+				E28B9475195CF9DC0076E845 /* ELDataStore.h */,
+				E28B9476195CF9DC0076E845 /* ELDataStore.m */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		E2B9F7E1196904C300411C1A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E2B9F7E2196906EE00411C1A /* ELAppListTableVC.h */,
+				E2B9F7E3196906EE00411C1A /* ELAppListTableVC.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E22190F9195C5E34001004F4 /* iTunesCalling */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E221912C195C5E34001004F4 /* Build configuration list for PBXNativeTarget "iTunesCalling" */;
+			buildPhases = (
+				AD52616FB9BE49A49053CF1E /* Check Pods Manifest.lock */,
+				E22190F6195C5E34001004F4 /* Sources */,
+				E22190F7195C5E34001004F4 /* Frameworks */,
+				E22190F8195C5E34001004F4 /* Resources */,
+				480D79558EC248F598BFA4D3 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iTunesCalling;
+			productName = iTunesCalling;
+			productReference = E22190FA195C5E34001004F4 /* iTunesCalling.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E2219119195C5E34001004F4 /* iTunesCallingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E221912F195C5E34001004F4 /* Build configuration list for PBXNativeTarget "iTunesCallingTests" */;
+			buildPhases = (
+				E2219116195C5E34001004F4 /* Sources */,
+				E2219117195C5E34001004F4 /* Frameworks */,
+				E2219118195C5E34001004F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E2219121195C5E34001004F4 /* PBXTargetDependency */,
+			);
+			name = iTunesCallingTests;
+			productName = iTunesCallingTests;
+			productReference = E221911A195C5E34001004F4 /* iTunesCallingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E22190F2195C5E34001004F4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = EL;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Edan Lichtenstein";
+				TargetAttributes = {
+					E2219119195C5E34001004F4 = {
+						TestTargetID = E22190F9195C5E34001004F4;
+					};
+				};
+			};
+			buildConfigurationList = E22190F5195C5E34001004F4 /* Build configuration list for PBXProject "iTunesCalling" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E22190F1195C5E34001004F4;
+			productRefGroup = E22190FB195C5E34001004F4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E22190F9195C5E34001004F4 /* iTunesCalling */,
+				E2219119195C5E34001004F4 /* iTunesCallingTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E22190F8195C5E34001004F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2219135195C6458001004F4 /* ELMain.storyboard in Resources */,
+				E221910A195C5E34001004F4 /* InfoPlist.strings in Resources */,
+				E2219115195C5E34001004F4 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2219118195C5E34001004F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2219127195C5E34001004F4 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		480D79558EC248F598BFA4D3 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD52616FB9BE49A49053CF1E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E22190F6195C5E34001004F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E28B9477195CF9DC0076E845 /* ELDataStore.m in Sources */,
+				E221910C195C5E34001004F4 /* main.m in Sources */,
+				E2B9F7EA1969195C00411C1A /* Application.m in Sources */,
+				E2B9F7E4196906EE00411C1A /* ELAppListTableVC.m in Sources */,
+				E2219110195C5E34001004F4 /* ELAppDelegate.m in Sources */,
+				E2219113195C5E34001004F4 /* iTunesCalling.xcdatamodeld in Sources */,
+				E2B9F7DD1969013E00411C1A /* ELiTunesDataProvider.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2219116195C5E34001004F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2219129195C5E34001004F4 /* iTunesCallingTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E2219121195C5E34001004F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E22190F9195C5E34001004F4 /* iTunesCalling */;
+			targetProxy = E2219120195C5E34001004F4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E2219108195C5E34001004F4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E2219109195C5E34001004F4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E2219125195C5E34001004F4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E2219126195C5E34001004F4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E221912A195C5E34001004F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E221912B195C5E34001004F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E221912D195C5E34001004F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E14A1FE79ADC408AB53C877E /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iTunesCalling/iTunesCalling-Prefix.pch";
+				INFOPLIST_FILE = "iTunesCalling/iTunesCalling-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E221912E195C5E34001004F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E14A1FE79ADC408AB53C877E /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iTunesCalling/iTunesCalling-Prefix.pch";
+				INFOPLIST_FILE = "iTunesCalling/iTunesCalling-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		E2219130195C5E34001004F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iTunesCalling.app/iTunesCalling";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iTunesCalling/iTunesCalling-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "iTunesCallingTests/iTunesCallingTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		E2219131195C5E34001004F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iTunesCalling.app/iTunesCalling";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iTunesCalling/iTunesCalling-Prefix.pch";
+				INFOPLIST_FILE = "iTunesCallingTests/iTunesCallingTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E22190F5195C5E34001004F4 /* Build configuration list for PBXProject "iTunesCalling" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E221912A195C5E34001004F4 /* Debug */,
+				E221912B195C5E34001004F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E221912C195C5E34001004F4 /* Build configuration list for PBXNativeTarget "iTunesCalling" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E221912D195C5E34001004F4 /* Debug */,
+				E221912E195C5E34001004F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E221912F195C5E34001004F4 /* Build configuration list for PBXNativeTarget "iTunesCallingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2219130195C5E34001004F4 /* Debug */,
+				E2219131195C5E34001004F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E2219111195C5E34001004F4 /* iTunesCalling.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E2219112195C5E34001004F4 /* iTunesCalling.xcdatamodel */,
+			);
+			currentVersion = E2219112195C5E34001004F4 /* iTunesCalling.xcdatamodel */;
+			path = iTunesCalling.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E22190F2195C5E34001004F4 /* Project object */;
+}
