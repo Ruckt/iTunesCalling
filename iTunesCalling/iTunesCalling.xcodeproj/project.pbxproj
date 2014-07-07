@@ -27,7 +27,9 @@
 		E28B9477195CF9DC0076E845 /* ELDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E28B9476195CF9DC0076E845 /* ELDataStore.m */; };
 		E2B9F7DD1969013E00411C1A /* ELiTunesDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B9F7DC1969013E00411C1A /* ELiTunesDataProvider.m */; };
 		E2B9F7E4196906EE00411C1A /* ELAppListTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B9F7E3196906EE00411C1A /* ELAppListTableVC.m */; };
-		E2B9F7EA1969195C00411C1A /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B9F7E91969195C00411C1A /* Application.m */; };
+		E2B9F7ED1969B18A00411C1A /* AppEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B9F7EC1969B18A00411C1A /* AppEntry.m */; };
+		E2B9F7F01969B9FD00411C1A /* AppEntry+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B9F7EF1969B9FD00411C1A /* AppEntry+Methods.m */; };
+		E2B9F7F3196B2DCD00411C1A /* ELAppCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B9F7F2196B2DCD00411C1A /* ELAppCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,8 +70,12 @@
 		E2B9F7DC1969013E00411C1A /* ELiTunesDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELiTunesDataProvider.m; sourceTree = "<group>"; };
 		E2B9F7E2196906EE00411C1A /* ELAppListTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAppListTableVC.h; sourceTree = "<group>"; };
 		E2B9F7E3196906EE00411C1A /* ELAppListTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAppListTableVC.m; sourceTree = "<group>"; };
-		E2B9F7E81969195C00411C1A /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
-		E2B9F7E91969195C00411C1A /* Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Application.m; sourceTree = "<group>"; };
+		E2B9F7EB1969B18A00411C1A /* AppEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppEntry.h; sourceTree = "<group>"; };
+		E2B9F7EC1969B18A00411C1A /* AppEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppEntry.m; sourceTree = "<group>"; };
+		E2B9F7EE1969B9FD00411C1A /* AppEntry+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppEntry+Methods.h"; sourceTree = "<group>"; };
+		E2B9F7EF1969B9FD00411C1A /* AppEntry+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppEntry+Methods.m"; sourceTree = "<group>"; };
+		E2B9F7F1196B2DCD00411C1A /* ELAppCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAppCell.h; sourceTree = "<group>"; };
+		E2B9F7F2196B2DCD00411C1A /* ELAppCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAppCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +146,7 @@
 				E2B9F7DB1969013E00411C1A /* ELiTunesDataProvider.h */,
 				E2B9F7DC1969013E00411C1A /* ELiTunesDataProvider.m */,
 				E2219114195C5E34001004F4 /* Images.xcassets */,
-				E2219134195C6458001004F4 /* ELMain.storyboard */,
+				E2B9F7F4196B2EAC00411C1A /* UI */,
 				E2B9F7E1196904C300411C1A /* View Controllers */,
 				E2B9F7DA1968DE3400411C1A /* Core Data */,
 				E2219106195C5E34001004F4 /* Supporting Files */,
@@ -180,9 +186,11 @@
 		E2B9F7DA1968DE3400411C1A /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				E2B9F7E81969195C00411C1A /* Application.h */,
-				E2B9F7E91969195C00411C1A /* Application.m */,
 				E2219111195C5E34001004F4 /* iTunesCalling.xcdatamodeld */,
+				E2B9F7EB1969B18A00411C1A /* AppEntry.h */,
+				E2B9F7EC1969B18A00411C1A /* AppEntry.m */,
+				E2B9F7EE1969B9FD00411C1A /* AppEntry+Methods.h */,
+				E2B9F7EF1969B9FD00411C1A /* AppEntry+Methods.m */,
 				E28B9475195CF9DC0076E845 /* ELDataStore.h */,
 				E28B9476195CF9DC0076E845 /* ELDataStore.m */,
 			);
@@ -196,6 +204,16 @@
 				E2B9F7E3196906EE00411C1A /* ELAppListTableVC.m */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		E2B9F7F4196B2EAC00411C1A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E2219134195C6458001004F4 /* ELMain.storyboard */,
+				E2B9F7F1196B2DCD00411C1A /* ELAppCell.h */,
+				E2B9F7F2196B2DCD00411C1A /* ELAppCell.m */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,13 +348,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2B9F7ED1969B18A00411C1A /* AppEntry.m in Sources */,
 				E28B9477195CF9DC0076E845 /* ELDataStore.m in Sources */,
 				E221910C195C5E34001004F4 /* main.m in Sources */,
-				E2B9F7EA1969195C00411C1A /* Application.m in Sources */,
+				E2B9F7F3196B2DCD00411C1A /* ELAppCell.m in Sources */,
 				E2B9F7E4196906EE00411C1A /* ELAppListTableVC.m in Sources */,
 				E2219110195C5E34001004F4 /* ELAppDelegate.m in Sources */,
 				E2219113195C5E34001004F4 /* iTunesCalling.xcdatamodeld in Sources */,
 				E2B9F7DD1969013E00411C1A /* ELiTunesDataProvider.m in Sources */,
+				E2B9F7F01969B9FD00411C1A /* AppEntry+Methods.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

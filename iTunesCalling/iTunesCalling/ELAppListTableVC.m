@@ -8,10 +8,14 @@
 
 #import "ELAppListTableVC.h"
 #import "ELiTunesDataProvider.h"
+#import "ELDataStore.h"
+#import "ELAppCell.h"
 
 @interface ELAppListTableVC ()
 
 @property (strong, nonatomic) ELiTunesDataProvider *iTunesDataProvider;
+@property (strong, nonatomic) ELDataStore *dataStore;
+
 @end
 
 @implementation ELAppListTableVC
@@ -36,8 +40,6 @@
     
     [self.iTunesDataProvider startiTunesFetch];
 
-    
-
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -52,17 +54,31 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [self.dataStore numberOfAppEntries];
 }
+
+
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    ELAppCell *cell = [tableView dequeueReusableCellWithIdentifier:@"appCell" forIndexPath:indexPath];
+//    
+//    [self configureCell:cell forIndexPath:indexPath];
+//    
+//    return cell;
+//}
+//
+//- (void)configureCell:(ELAppCell *)cell forIndexPath:(NSIndexPath *)indexPath
+//{
+//    
+//    ELAppCell *appCell = (ELAppCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+////        pugCell.pugImageView.image= self.images[indexPath];
+//
+//}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

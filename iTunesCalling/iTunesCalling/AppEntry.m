@@ -1,22 +1,22 @@
 //
-//  Application.m
+//  AppEntry.m
 //  iTunesCalling
 //
 //  Created by Edan Lichtenstein on 7/6/14.
 //  Copyright (c) 2014 Edan Lichtenstein. All rights reserved.
 //
 
-#import "Application.h"
+#import "AppEntry.h"
 
 
-@implementation Application
+@implementation AppEntry
 
+@dynamic artist;
+@dynamic idNumber;
+@dynamic largePictureURL;
+@dynamic smallPictureURl;
+@dynamic price;
 @dynamic name;
 @dynamic summary;
-@dynamic idNumber;
-@dynamic smallPictureURL;
-@dynamic largePictureURL;
-@dynamic price;
-@dynamic artist;
 
 @end

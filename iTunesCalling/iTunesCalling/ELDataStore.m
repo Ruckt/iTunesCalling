@@ -10,8 +10,10 @@
 
 @interface ELDataStore ()
 
+@property (nonatomic, strong) NSMutableArray *appEntryArray;
 
 @end
+
 
 @implementation ELDataStore
 
@@ -35,6 +37,37 @@
     
     return _sharedELDataStore;
 }
+
+# pragma mark - AppEntry Methods
+
+- (NSArray *)appEntryArray  {
+    
+    if (!_appEntryArray)
+    {
+        _appEntryArray = [NSMutableArray new];
+    }
+    return _appEntryArray;
+    
+}
+
+- (void)addAppEntry:(AppEntry *)appEntry {
+
+    [self.appEntryArray addObject:appEntry];
+    //NSLog(@"New addition: %@", [self.appEntryArray objectAtIndex:(self.numberOfAppEntries -1)]);
+}
+
+
+- (NSInteger)numberOfAppEntries {
+    
+    return [self.appEntryArray count];
+}
+
+
+- (AppEntry *)getAppEntryAtIndex:(NSInteger)index {
+    return [self.appEntryArray objectAtIndex:index];
+}
+
+
 
 
 
