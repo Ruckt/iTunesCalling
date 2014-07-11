@@ -22,29 +22,30 @@ NSString* const ITunesURL = @"http://ax.itunes.apple.com/WebObjects/MZStoreServi
 @implementation ELiTunesDataProvider
 
 
-
-
 - (id)init {
     self.dataStore = [ELDataStore sharedELDataStore];
+    
     
     return self;
 }
 
 
-
-
+- (void)postNotification //post notification method and logic
+{
+     [[NSNotificationCenter defaultCenter] postNotificationName:@"FetchComplete" object:nil];
+}
 
 #pragma mark - iTunes Fetching
 
 - (void)startiTunesFetch
 {
-    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:ITunesURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
         NSDictionary *responseDictionary = (NSDictionary *)responseObject;
         //NSLog(@"dictionary: %@", responseDictionary);
         [self parseDictionary:responseDictionary];
+        [self postNotification];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
@@ -57,8 +58,7 @@ NSString* const ITunesURL = @"http://ax.itunes.apple.com/WebObjects/MZStoreServi
     
     NSDictionary *subDictionary = [responseDictionary objectForKey:@"feed"];
     NSDictionary *applicationDictionary = [subDictionary objectForKey:@"entry"];
-    //NSLog(@"App Only Dictionary: %@", applicationDictionary);
-    
+
     for (NSDictionary *eachAppInfo in applicationDictionary) {
         
         NSDictionary *appNameDictionary = [eachAppInfo objectForKey:@"im:name"];
@@ -69,15 +69,15 @@ NSString* const ITunesURL = @"http://ax.itunes.apple.com/WebObjects/MZStoreServi
         NSDictionary *subIdDictionary = [appIdDictionary objectForKey:@"attributes"];
         NSString *idNumberString = [subIdDictionary objectForKey:@"im:id"];
         NSNumber *idNumber = @([idNumberString integerValue]);
-        NSLog(@"App ID: %@", idNumber);
+        //NSLog(@"App ID: %@", idNumber);
 
         NSDictionary *appArtistDictionary = [eachAppInfo objectForKey:@"im:artist"];
         NSString *appArtist = [appArtistDictionary objectForKey:@"label"];
-        NSLog(@"Artist: %@", appArtist);
+        //NSLog(@"Artist: %@", appArtist);
         
         NSDictionary *appPriceDictionary = [eachAppInfo objectForKey:@"im:price"];
         NSString *appPrice = [appPriceDictionary objectForKey:@"label"];
-        NSLog(@"Price: %@", appPrice);
+        //NSLog(@"Price: %@", appPrice);
     
         
         NSDictionary *appSummaryDictionary = [eachAppInfo objectForKey:@"summary"];

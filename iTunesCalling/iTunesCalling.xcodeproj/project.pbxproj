@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC2DD168801A45DAA4A37E86 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB2F053A3914121B83D2CE6 /* libPods.a */; };
+		94BCD097F2FD4132BF2C2263 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB2F053A3914121B83D2CE6 /* libPods.a */; };
+		E2181722196C7C0800285E0C /* holdingpattern.png in Resources */ = {isa = PBXBuildFile; fileRef = E2181721196C7C0800285E0C /* holdingpattern.png */; };
 		E22190FE195C5E34001004F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E22190FD195C5E34001004F4 /* Foundation.framework */; };
 		E2219100195C5E34001004F4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E22190FF195C5E34001004F4 /* CoreGraphics.framework */; };
 		E2219102195C5E34001004F4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2219101195C5E34001004F4 /* UIKit.framework */; };
@@ -23,7 +24,6 @@
 		E221911F195C5E34001004F4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2219103195C5E34001004F4 /* CoreData.framework */; };
 		E2219127195C5E34001004F4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2219125195C5E34001004F4 /* InfoPlist.strings */; };
 		E2219129195C5E34001004F4 /* iTunesCallingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2219128195C5E34001004F4 /* iTunesCallingTests.m */; };
-		E2219135195C6458001004F4 /* ELMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2219134195C6458001004F4 /* ELMain.storyboard */; };
 		E28B9477195CF9DC0076E845 /* ELDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E28B9476195CF9DC0076E845 /* ELDataStore.m */; };
 		E2B9F7DD1969013E00411C1A /* ELiTunesDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B9F7DC1969013E00411C1A /* ELiTunesDataProvider.m */; };
 		E2B9F7E4196906EE00411C1A /* ELAppListTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B9F7E3196906EE00411C1A /* ELAppListTableVC.m */; };
@@ -45,6 +45,7 @@
 /* Begin PBXFileReference section */
 		5BB2F053A3914121B83D2CE6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E14A1FE79ADC408AB53C877E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		E2181721196C7C0800285E0C /* holdingpattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = holdingpattern.png; sourceTree = "<group>"; };
 		E22190FA195C5E34001004F4 /* iTunesCalling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesCalling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E22190FD195C5E34001004F4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E22190FF195C5E34001004F4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -63,7 +64,6 @@
 		E2219124195C5E34001004F4 /* iTunesCallingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iTunesCallingTests-Info.plist"; sourceTree = "<group>"; };
 		E2219126195C5E34001004F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E2219128195C5E34001004F4 /* iTunesCallingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iTunesCallingTests.m; sourceTree = "<group>"; };
-		E2219134195C6458001004F4 /* ELMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ELMain.storyboard; path = ../ELMain.storyboard; sourceTree = "<group>"; };
 		E28B9475195CF9DC0076E845 /* ELDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDataStore.h; sourceTree = "<group>"; };
 		E28B9476195CF9DC0076E845 /* ELDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDataStore.m; sourceTree = "<group>"; };
 		E2B9F7DB1969013E00411C1A /* ELiTunesDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELiTunesDataProvider.h; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 				E2219104195C5E34001004F4 /* CoreData.framework in Frameworks */,
 				E2219102195C5E34001004F4 /* UIKit.framework in Frameworks */,
 				E22190FE195C5E34001004F4 /* Foundation.framework in Frameworks */,
-				DC2DD168801A45DAA4A37E86 /* libPods.a in Frameworks */,
+				94BCD097F2FD4132BF2C2263 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +146,7 @@
 				E2B9F7DB1969013E00411C1A /* ELiTunesDataProvider.h */,
 				E2B9F7DC1969013E00411C1A /* ELiTunesDataProvider.m */,
 				E2219114195C5E34001004F4 /* Images.xcassets */,
+				E2181721196C7C0800285E0C /* holdingpattern.png */,
 				E2B9F7F4196B2EAC00411C1A /* UI */,
 				E2B9F7E1196904C300411C1A /* View Controllers */,
 				E2B9F7DA1968DE3400411C1A /* Core Data */,
@@ -209,7 +210,6 @@
 		E2B9F7F4196B2EAC00411C1A /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				E2219134195C6458001004F4 /* ELMain.storyboard */,
 				E2B9F7F1196B2DCD00411C1A /* ELAppCell.h */,
 				E2B9F7F2196B2DCD00411C1A /* ELAppCell.m */,
 			);
@@ -294,7 +294,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2219135195C6458001004F4 /* ELMain.storyboard in Resources */,
+				E2181722196C7C0800285E0C /* holdingpattern.png in Resources */,
 				E221910A195C5E34001004F4 /* InfoPlist.strings in Resources */,
 				E2219115195C5E34001004F4 /* Images.xcassets in Resources */,
 			);
@@ -477,6 +477,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iTunesCalling/iTunesCalling-Prefix.pch";
 				INFOPLIST_FILE = "iTunesCalling/iTunesCalling-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -491,6 +492,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iTunesCalling/iTunesCalling-Prefix.pch";
 				INFOPLIST_FILE = "iTunesCalling/iTunesCalling-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

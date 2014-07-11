@@ -8,7 +8,15 @@
 
 #import "ELAppDelegate.h"
 #import "ELAppListTableVC.h"
+#import "ELiTunesDataProvider.h"
+#import "ELDataStore.h"
+#import "AppEntry+Methods.h"
 
+@interface ELAppDelegate ()
+
+@property (strong, nonatomic) ELDataStore *dataStore;
+
+@end
 
 @implementation ELAppDelegate
 
@@ -17,19 +25,13 @@
 {
     
     [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+    self.dataStore = [ELDataStore sharedELDataStore];
+    ELiTunesDataProvider *iTunesDataProvider = [[ELiTunesDataProvider alloc] init];
+    [iTunesDataProvider startiTunesFetch];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    
-    
-    
     self.viewController = [[UINavigationController alloc] initWithRootViewController:[[ELAppListTableVC alloc] initWithStyle:UITableViewStylePlain]];
-    
     self.window.rootViewController = self.viewController;
-
-    
-    
     [self.window makeKeyAndVisible];
     return YES;
 }

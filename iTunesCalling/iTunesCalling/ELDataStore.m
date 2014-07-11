@@ -52,8 +52,8 @@
 
 - (void)addAppEntry:(AppEntry *)appEntry {
 
+     //NSLog(@"Adding app Entry: %@", appEntry.name);
     [self.appEntryArray addObject:appEntry];
-    //NSLog(@"New addition: %@", [self.appEntryArray objectAtIndex:(self.numberOfAppEntries -1)]);
 }
 
 
@@ -64,6 +64,8 @@
 
 
 - (AppEntry *)getAppEntryAtIndex:(NSInteger)index {
+    AppEntry *appEntry = [self.appEntryArray objectAtIndex:index];
+    NSLog(@"Getting app Entry: %@",appEntry.name);
     return [self.appEntryArray objectAtIndex:index];
 }
 

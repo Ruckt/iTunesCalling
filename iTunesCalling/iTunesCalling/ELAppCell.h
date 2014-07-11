@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "AppEntry+Methods.h"
 @interface ELAppCell : UITableViewCell
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier appEntry:(AppEntry *)appEntry;
+- (void)configureCellWithAppEntry:(AppEntry *)appEntry;
+
 
 @end

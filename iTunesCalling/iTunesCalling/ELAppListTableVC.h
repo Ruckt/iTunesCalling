@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ELAppCell.h"
 
-@interface ELAppListTableVC : UITableViewController
+
+@interface ELAppListTableVC : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property UITableView *appListTableView;
 
 @end

@@ -7,14 +7,18 @@
 //
 
 #import "ELAppListTableVC.h"
-#import "ELiTunesDataProvider.h"
 #import "ELDataStore.h"
-#import "ELAppCell.h"
+
+#import "AppEntry+Methods.h"
+
+static NSString *CellIdentifier = @"appCell";
+static NSInteger const CELL_HEIGHT = 85;
 
 @interface ELAppListTableVC ()
 
-@property (strong, nonatomic) ELiTunesDataProvider *iTunesDataProvider;
 @property (strong, nonatomic) ELDataStore *dataStore;
+@property (strong, nonatomic) AppEntry *appEntryPlaceHolder;
+@property BOOL FetchComplete;
 
 @end
 
@@ -26,29 +30,41 @@
     if (self) {
         
         [self setTitle:@"Happy iTunes"];
+        self.dataStore = [ELDataStore sharedELDataStore];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveEvent:) name:@"FetchComplete" object:nil];
+        self.FetchComplete = NO;
         
-        self.iTunesDataProvider = [[ELiTunesDataProvider alloc] init];
+        [self createAppEntryPlaceHolder];
         
-        // Custom initialization
+        self.appListTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        
+        self.appListTableView.delegate = self;
+        self.appListTableView.dataSource = self;
+        
+ 
+        
+        //    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        //    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+        
+        
+        [self.view addSubview:self.appListTableView];
+        
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    [self.iTunesDataProvider startiTunesFetch];
+#pragma mark - NSNotification Center
 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+- (void)receiveEvent:(NSNotification *)notification {
+    NSLog(@"Received iTunes Data Data Data");
+    self.FetchComplete = YES;
+    [self.appListTableView reloadData];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
 
 #pragma mark - Table view data source
 
@@ -59,75 +75,54 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.dataStore numberOfAppEntries];
+    return 25;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return CELL_HEIGHT;
 }
 
 
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    ELAppCell *cell = [tableView dequeueReusableCellWithIdentifier:@"appCell" forIndexPath:indexPath];
-//    
-//    [self configureCell:cell forIndexPath:indexPath];
-//    
-//    return cell;
-//}
-//
-//- (void)configureCell:(ELAppCell *)cell forIndexPath:(NSIndexPath *)indexPath
-//{
-//    
-//    ELAppCell *appCell = (ELAppCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-////        pugCell.pugImageView.image= self.images[indexPath];
-//
-//}
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    ELAppCell *elAppCell = (ELAppCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    AppEntry *appEntry;
+
+    if (self.FetchComplete) {
+       appEntry = [self.dataStore getAppEntryAtIndex:indexPath.row];
+    }
+    else {
+        appEntry = self.appEntryPlaceHolder;
+    }
     
-    // Configure the cell...
-    
-    return cell;
-}
-*/
+    if (!elAppCell) {
+        // This is only being called when you are instantiating the cell for the first time.
+        elAppCell = [[ELAppCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier appEntry:appEntry];
+    }
+    else {
+        // We are re-using a cell. We are not re-instantiating it. We are just going to change its picture.
+        [elAppCell configureCellWithAppEntry:appEntry];
+    }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return elAppCell;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+- (void)createAppEntryPlaceHolder {
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+    self.appEntryPlaceHolder = [AppEntry appEntryName:@"Letter Sort"
+                                               idNumber:@44
+                                                 artist:@"Curly Day"
+                                                summary:@"big summer"
+                                                  price:@"$1,000,000"
+                                        largePictureURL:@"http://a4.mzstatic.com/us/r30/Purple4/v4/e4/35/4e/e4354ef0-4208-8cb0-ea7b-a69e76c2d4c7/mzl.xrwodswy.100x100-75.jpg"
+                                     andSmallPictureURL:@"http://a4.mzstatic.com/us/r30/Purple4/v4/e4/35/4e/e4354ef0-4208-8cb0-ea7b-a69e76c2d4c7/mzl.xrwodswy.53x53-50.jpg"
+                                 inManagedObjectContext:self.dataStore.managedObjectContext];
 }
-*/
+
 
 /*
 #pragma mark - Navigation
