@@ -10,8 +10,10 @@
 
 
 static NSInteger const SPACE_BETWEEN = 10;
-static NSInteger const TITLE_LABEL_WIDTH = 237;
+static NSInteger const TITLE_LABEL_WIDTH = 242;//337;
 static NSInteger const THUMBNAIL_LENGTH = 53;
+static NSInteger const ARTIST_LABEL_HEIGHT = 15;
+static NSInteger const ARTIST_Y_COORDINATE = 65;
 
 @interface ELAppCell()
 
@@ -28,6 +30,8 @@ static NSInteger const THUMBNAIL_LENGTH = 53;
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
 
+        
+        
         self.appNameLabel = [[UILabel alloc] init];
         self.thumbnailImageView = [[UIImageView alloc] init];
         
@@ -70,23 +74,21 @@ static NSInteger const THUMBNAIL_LENGTH = 53;
 {
     UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(SPACE_BETWEEN, SPACE_BETWEEN, TITLE_LABEL_WIDTH, 0)];
     nameLabel.text = appName;
-    nameLabel.font = [UIFont fontWithName:@"Verdana-Bold" size:18];
-    nameLabel.numberOfLines = 0;
+    nameLabel.font = [UIFont fontWithName:@"Palatino-Bold" size:18];
+    nameLabel.numberOfLines = 2;
     [nameLabel setLineBreakMode:NSLineBreakByWordWrapping];
     [nameLabel sizeToFit];
-    nameLabel.backgroundColor = [UIColor blueColor];
+    //nameLabel.backgroundColor = [UIColor blueColor];
     
     return nameLabel;
 }
 
 -(UILabel *)buildAppArtistLabel: (NSString *)artist
 {
-    CGFloat labelHeight = 40;
-    CGFloat yBodyCoordinate = self.appNameLabel.frame.size.height + 3*SPACE_BETWEEN;
     CGFloat labelWidth = self.frame.size.width - 20;
     
-    UILabel *artistLabel = [[UILabel alloc] initWithFrame:CGRectMake(SPACE_BETWEEN, yBodyCoordinate, labelWidth, labelHeight)];
-    artistLabel.font = [UIFont fontWithName:@"Verdana" size:13];
+    UILabel *artistLabel = [[UILabel alloc] initWithFrame:CGRectMake(SPACE_BETWEEN, ARTIST_Y_COORDINATE, labelWidth, ARTIST_LABEL_HEIGHT)];
+    artistLabel.font = [UIFont fontWithName:@"Palatino" size:13];
     artistLabel.numberOfLines = 1;
     artistLabel.text = [NSString stringWithFormat:@"By %@", artist];
     
@@ -96,7 +98,7 @@ static NSInteger const THUMBNAIL_LENGTH = 53;
 
 -(UIImageView *)buildThumbnailImageView: (NSString *)imageUrl
 {
-    CGFloat imageX = TITLE_LABEL_WIDTH + SPACE_BETWEEN;
+    CGFloat imageX = self.frame.size.width - (THUMBNAIL_LENGTH + SPACE_BETWEEN);
     
     UIImageView *thumbnailImageView = [[UIImageView alloc] initWithFrame:CGRectMake(imageX, SPACE_BETWEEN, THUMBNAIL_LENGTH, THUMBNAIL_LENGTH)];
     

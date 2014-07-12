@@ -25,6 +25,7 @@
 		E2219127195C5E34001004F4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2219125195C5E34001004F4 /* InfoPlist.strings */; };
 		E2219129195C5E34001004F4 /* iTunesCallingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2219128195C5E34001004F4 /* iTunesCallingTests.m */; };
 		E28B9477195CF9DC0076E845 /* ELDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E28B9476195CF9DC0076E845 /* ELDataStore.m */; };
+		E28BCC3019709945008970A3 /* ELSingleAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BCC2F19709945008970A3 /* ELSingleAppViewController.m */; };
 		E2B9F7DD1969013E00411C1A /* ELiTunesDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B9F7DC1969013E00411C1A /* ELiTunesDataProvider.m */; };
 		E2B9F7E4196906EE00411C1A /* ELAppListTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B9F7E3196906EE00411C1A /* ELAppListTableVC.m */; };
 		E2B9F7ED1969B18A00411C1A /* AppEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B9F7EC1969B18A00411C1A /* AppEntry.m */; };
@@ -66,6 +67,8 @@
 		E2219128195C5E34001004F4 /* iTunesCallingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iTunesCallingTests.m; sourceTree = "<group>"; };
 		E28B9475195CF9DC0076E845 /* ELDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDataStore.h; sourceTree = "<group>"; };
 		E28B9476195CF9DC0076E845 /* ELDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDataStore.m; sourceTree = "<group>"; };
+		E28BCC2E19709945008970A3 /* ELSingleAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSingleAppViewController.h; sourceTree = "<group>"; };
+		E28BCC2F19709945008970A3 /* ELSingleAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSingleAppViewController.m; sourceTree = "<group>"; };
 		E2B9F7DB1969013E00411C1A /* ELiTunesDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELiTunesDataProvider.h; sourceTree = "<group>"; };
 		E2B9F7DC1969013E00411C1A /* ELiTunesDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELiTunesDataProvider.m; sourceTree = "<group>"; };
 		E2B9F7E2196906EE00411C1A /* ELAppListTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAppListTableVC.h; sourceTree = "<group>"; };
@@ -203,6 +206,8 @@
 			children = (
 				E2B9F7E2196906EE00411C1A /* ELAppListTableVC.h */,
 				E2B9F7E3196906EE00411C1A /* ELAppListTableVC.m */,
+				E28BCC2E19709945008970A3 /* ELSingleAppViewController.h */,
+				E28BCC2F19709945008970A3 /* ELSingleAppViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -357,6 +362,7 @@
 				E2219113195C5E34001004F4 /* iTunesCalling.xcdatamodeld in Sources */,
 				E2B9F7DD1969013E00411C1A /* ELiTunesDataProvider.m in Sources */,
 				E2B9F7F01969B9FD00411C1A /* AppEntry+Methods.m in Sources */,
+				E28BCC3019709945008970A3 /* ELSingleAppViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

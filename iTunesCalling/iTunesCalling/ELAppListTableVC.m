@@ -8,7 +8,7 @@
 
 #import "ELAppListTableVC.h"
 #import "ELDataStore.h"
-
+#import "ELSingleAppViewController.h"
 #import "AppEntry+Methods.h"
 
 static NSString *CellIdentifier = @"appCell";
@@ -75,7 +75,7 @@ static NSInteger const CELL_HEIGHT = 85;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 25;
+    return 26;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -91,8 +91,8 @@ static NSInteger const CELL_HEIGHT = 85;
     ELAppCell *elAppCell = (ELAppCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     AppEntry *appEntry;
 
-    if (self.FetchComplete) {
-       appEntry = [self.dataStore getAppEntryAtIndex:indexPath.row];
+    if (self.FetchComplete & (indexPath.row<25)) {
+        appEntry = [self.dataStore getAppEntryAtIndex:indexPath.row];
     }
     else {
         appEntry = self.appEntryPlaceHolder;
@@ -113,10 +113,10 @@ static NSInteger const CELL_HEIGHT = 85;
 
 - (void)createAppEntryPlaceHolder {
 
-    self.appEntryPlaceHolder = [AppEntry appEntryName:@"Letter Sort"
+    self.appEntryPlaceHolder = [AppEntry appEntryName:@"Letter Sort Ultimate Winning Challenge"
                                                idNumber:@44
                                                  artist:@"Curly Day"
-                                                summary:@"big summer"
+                                                summary:@"Letter Sort is an anagram maker. It generates every possible word when you input a set of letters. It can be used to help you think of what words your name can create or aid you in any word game."
                                                   price:@"$1,000,000"
                                         largePictureURL:@"http://a4.mzstatic.com/us/r30/Purple4/v4/e4/35/4e/e4354ef0-4208-8cb0-ea7b-a69e76c2d4c7/mzl.xrwodswy.100x100-75.jpg"
                                      andSmallPictureURL:@"http://a4.mzstatic.com/us/r30/Purple4/v4/e4/35/4e/e4354ef0-4208-8cb0-ea7b-a69e76c2d4c7/mzl.xrwodswy.53x53-50.jpg"
@@ -134,5 +134,22 @@ static NSInteger const CELL_HEIGHT = 85;
     // Pass the selected object to the new view controller.
 }
 */
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    AppEntry *appEntry;
+    
+    if (indexPath.row<25) {
+        appEntry = [self.dataStore getAppEntryAtIndex:indexPath.row];
+    }
+    else {
+        appEntry = self.appEntryPlaceHolder;
+    }
+    
+    
+    ELSingleAppViewController *singleAppViewController = [[ELSingleAppViewController alloc] initWithAppEntry:appEntry];
+    [self.navigationController pushViewController:singleAppViewController animated:YES];
+}
+
 
 @end
