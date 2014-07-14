@@ -10,7 +10,7 @@
 
 @interface ELDataStore ()
 
-@property (nonatomic, strong) NSMutableArray *appEntryArray;
+//@property (nonatomic, strong) NSMutableArray *appEntryArray;
 
 @end
 

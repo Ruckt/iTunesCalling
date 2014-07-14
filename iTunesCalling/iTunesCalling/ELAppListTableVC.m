@@ -18,6 +18,7 @@ static NSInteger const CELL_HEIGHT = 85;
 
 @property (strong, nonatomic) ELDataStore *dataStore;
 @property (strong, nonatomic) AppEntry *appEntryPlaceHolder;
+@property (strong, nonatomic) NSArray *appEntries;
 @property BOOL FetchComplete;
 
 @end
@@ -58,6 +59,8 @@ static NSInteger const CELL_HEIGHT = 85;
 - (void)receiveEvent:(NSNotification *)notification {
     NSLog(@"Received iTunes Data Data Data");
     self.FetchComplete = YES;
+    self.appEntries = [self.dataStore appEntryArray];
+    
     [self.appListTableView reloadData];
 }
 
@@ -92,7 +95,7 @@ static NSInteger const CELL_HEIGHT = 85;
     AppEntry *appEntry;
 
     if (self.FetchComplete & (indexPath.row<25)) {
-        appEntry = [self.dataStore getAppEntryAtIndex:indexPath.row];
+        appEntry = [self.appEntries objectAtIndex:indexPath.row];
     }
     else {
         appEntry = self.appEntryPlaceHolder;
@@ -140,7 +143,7 @@ static NSInteger const CELL_HEIGHT = 85;
     AppEntry *appEntry;
     
     if (indexPath.row<25) {
-        appEntry = [self.dataStore getAppEntryAtIndex:indexPath.row];
+        appEntry = [self.appEntries objectAtIndex:indexPath.row];
     }
     else {
         appEntry = self.appEntryPlaceHolder;

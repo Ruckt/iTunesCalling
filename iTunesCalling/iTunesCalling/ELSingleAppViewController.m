@@ -24,6 +24,9 @@ static NSInteger const SECOND_COL_WIDTH = 170;
 @property(nonatomic, strong) UILabel *appSummaryLabel;
 @property(nonatomic, strong) UILabel *appPriceLabel;
 @property(nonatomic, strong) UIImageView *appImageView;
+@property(nonatomic, strong) UIBarButtonItem *shareButton;
+@property(nonatomic, strong) UIActivityViewController *activityVC;
+
 
 @end
 
@@ -45,11 +48,14 @@ static NSInteger const SECOND_COL_WIDTH = 170;
 {
     [super viewDidLoad];
     
+    
     [self.view setBackgroundColor: [UIColor whiteColor]];
     
     
     [self buildAppEntryView];
+    [self buildShareButtonFunctionality];
 }
+
 
 
 -(void) buildAppEntryView
@@ -89,6 +95,8 @@ static NSInteger const SECOND_COL_WIDTH = 170;
     
 }
 
+
+#pragma mark - Layer by layer
 
 -(UILabel *)buildAppNameLabel: (NSString *)appName atYCoordinate: (CGFloat)yCoordinate
 {
@@ -159,6 +167,40 @@ static NSInteger const SECOND_COL_WIDTH = 170;
     
     return priceLabel;
 }
+
+
+#pragma mark - Share Button Functionatlity
+
+
+- (void)buildShareButtonFunctionality
+{
+    self.shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareLink)];
+    self.navigationItem.rightBarButtonItem = self.shareButton;
+    
+    
+    NSString *textWithLink = @"Check out this cool new app!!";
+    NSURL *appLink = [NSURL URLWithString:@"http://www.ruckt.com/"];
+    
+    NSArray *linkToShare = @[textWithLink, appLink];
+    
+    
+    self.activityVC = [[UIActivityViewController alloc] initWithActivityItems:linkToShare applicationActivities:nil];
+    
+    NSArray *excludeActivities = @[UIActivityTypeAirDrop,
+                                   UIActivityTypePrint,
+                                   UIActivityTypeAssignToContact,
+                                   UIActivityTypeSaveToCameraRoll,
+                                   UIActivityTypeAddToReadingList];
+    
+    self.activityVC.excludedActivityTypes = excludeActivities;
+    
+}
+
+- (void)shareLink
+{
+    [self presentViewController:self.activityVC animated:YES completion:nil];
+}
+
 
 
 @end

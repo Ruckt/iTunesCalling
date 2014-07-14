@@ -43,7 +43,6 @@ static NSInteger const ARTIST_Y_COORDINATE = 65;
         [self.contentView addSubview:self.thumbnailImageView];
         [self.contentView addSubview:self.appArtistLabel];
     }
-    NSLog(@"Cell cell");
     return self;
 }
 
@@ -59,7 +58,7 @@ static NSInteger const ARTIST_Y_COORDINATE = 65;
         UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:address]];
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            NSLog(@"Configuring cell: %@",appEntry.name);
+            //NSLog(@"Configuring cell: %@",appEntry.name);
             self.appNameLabel.text = appEntry.name;
             self.thumbnailImageView.image = image;
             self.appArtistLabel.text = [NSString stringWithFormat:@"By %@", appEntry.artist];
@@ -78,7 +77,6 @@ static NSInteger const ARTIST_Y_COORDINATE = 65;
     nameLabel.numberOfLines = 2;
     [nameLabel setLineBreakMode:NSLineBreakByWordWrapping];
     [nameLabel sizeToFit];
-    //nameLabel.backgroundColor = [UIColor blueColor];
     
     return nameLabel;
 }
