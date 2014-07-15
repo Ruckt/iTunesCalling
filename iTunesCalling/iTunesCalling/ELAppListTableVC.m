@@ -115,10 +115,8 @@ static NSInteger const CELL_HEIGHT = 85;
         dataArray = [self.dataStore appEntryArray];
         [dataArray addObject:self.appEntryPlaceHolder];
     }else {
-        NSLog(@"jack jason");
         for (NSInteger i=0; i<26; i++) {
             [dataArray addObject:self.appEntryPlaceHolder];
-            NSLog(@"jack jck %@", self.appEntryPlaceHolder);
         }
     }
     

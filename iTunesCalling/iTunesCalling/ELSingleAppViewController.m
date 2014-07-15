@@ -25,7 +25,7 @@ static NSInteger const SECOND_COL_WIDTH = 170;
 @property(nonatomic, strong) UILabel *appPriceLabel;
 @property(nonatomic, strong) UIImageView *appImageView;
 @property(nonatomic, strong) UIBarButtonItem *shareButton;
-@property(nonatomic, strong) UIActivityViewController *activityVC;
+//@property(nonatomic, strong) UIActivityViewController *activityVC;
 
 
 @end
@@ -53,7 +53,8 @@ static NSInteger const SECOND_COL_WIDTH = 170;
     
     
     [self buildAppEntryView];
-    [self buildShareButtonFunctionality:self.appEntry.shareLink];
+   
+    [self buildShareButton];
 }
 
 
@@ -172,19 +173,21 @@ static NSInteger const SECOND_COL_WIDTH = 170;
 #pragma mark - Share Button Functionatlity
 
 
-- (void)buildShareButtonFunctionality:(NSString *)shareLink
+- (void)buildShareButton
 {
-    self.shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareLink)];
+    self.shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareLinkFunctionality)];
     self.navigationItem.rightBarButtonItem = self.shareButton;
-    
-    
+
+}
+
+
+
+- (void)shareLinkFunctionality
+{
     NSString *textWithLink = @"Check out this cool new app!!";
-    NSURL *appLink = [NSURL URLWithString:shareLink];
+    NSURL *appLink = [NSURL URLWithString:self.appEntry.shareLink];
     
-    NSArray *linkToShare = @[textWithLink, appLink];
-    
-    
-    self.activityVC = [[UIActivityViewController alloc] initWithActivityItems:linkToShare applicationActivities:nil];
+    NSArray *activityItems = [NSArray arrayWithObjects:textWithLink, appLink,nil];
     
     NSArray *excludeActivities = @[UIActivityTypeAirDrop,
                                    UIActivityTypePrint,
@@ -192,13 +195,13 @@ static NSInteger const SECOND_COL_WIDTH = 170;
                                    UIActivityTypeSaveToCameraRoll,
                                    UIActivityTypeAddToReadingList];
     
-    self.activityVC.excludedActivityTypes = excludeActivities;
-    
-}
 
-- (void)shareLink
-{
-    [self presentViewController:self.activityVC animated:YES completion:nil];
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    activityViewController.excludedActivityTypes = excludeActivities;
+    
+    
+    activityViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentViewController:activityViewController animated:YES completion:nil];
 }
 
 
