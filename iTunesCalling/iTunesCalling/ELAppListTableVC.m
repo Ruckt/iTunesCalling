@@ -30,6 +30,7 @@ static NSInteger const CELL_HEIGHT = 85;
     self = [super initWithStyle:style];
     if (self) {
         
+    
         [self setTitle:@"Happy iTunes"];
         self.dataStore = [ELDataStore sharedELDataStore];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveEvent:) name:@"FetchComplete" object:nil];
@@ -37,6 +38,7 @@ static NSInteger const CELL_HEIGHT = 85;
         
         [self createAppEntryPlaceHolder];
         self.appEntries = [self buildDataArray];
+        NSLog(@"self appEntres %@", self.appEntries);
         
         self.appListTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         
@@ -105,33 +107,35 @@ static NSInteger const CELL_HEIGHT = 85;
 
 - (NSArray *)buildDataArray
 {
-    NSMutableArray *dataArray = [[NSMutableArray alloc] init];
     
+    NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+
     if (self.FetchComplete){
         
         dataArray = [self.dataStore appEntryArray];
         [dataArray addObject:self.appEntryPlaceHolder];
-        
     }else {
-        
-        for (NSInteger i; i<26; i++) {
+        NSLog(@"jack jason");
+        for (NSInteger i=0; i<26; i++) {
             [dataArray addObject:self.appEntryPlaceHolder];
+            NSLog(@"jack jck %@", self.appEntryPlaceHolder);
         }
     }
     
-    return [NSArray arrayWithArray:dataArray];
+    return dataArray;
 }
 
 - (void)createAppEntryPlaceHolder
 {
     self.appEntryPlaceHolder = [AppEntry appEntryName:@"Letter Sort Ultimate Winning Challenge"
-                                               idNumber:@44
-                                                 artist:@"Curly Day"
-                                                summary:@"Letter Sort is an anagram maker. It generates every possible word when you input a set of letters. It can be used to help you think of what words your name can create or aid you in any word game."
-                                                  price:@"$1,000,000"
-                                        largePictureURL:@"http://a4.mzstatic.com/us/r30/Purple4/v4/e4/35/4e/e4354ef0-4208-8cb0-ea7b-a69e76c2d4c7/mzl.xrwodswy.100x100-75.jpg"
-                                     andSmallPictureURL:@"http://a4.mzstatic.com/us/r30/Purple4/v4/e4/35/4e/e4354ef0-4208-8cb0-ea7b-a69e76c2d4c7/mzl.xrwodswy.53x53-50.jpg"
-                                 inManagedObjectContext:self.dataStore.managedObjectContext];
+                                             idNumber:@44
+                                               artist:@"Curly Day"
+                                              summary:@"Letter Sort is an anagram maker. It generates every possible word when you input a set of letters. It can be used to help you think of what words your name can create or aid you in any word game."
+                                                price:@"$1,000,000"
+                                             sharLink:@"https://itunes.apple.com/us/app/letter-sort/id875653244?mt=8"
+                                      largePictureURL:@"http://a4.mzstatic.com/us/r30/Purple4/v4/e4/35/4e/e4354ef0-4208-8cb0-ea7b-a69e76c2d4c7/mzl.xrwodswy.100x100-75.jpg"
+                                   andSmallPictureURL:@"http://a4.mzstatic.com/us/r30/Purple4/v4/e4/35/4e/e4354ef0-4208-8cb0-ea7b-a69e76c2d4c7/mzl.xrwodswy.53x53-50.jpg"
+                               inManagedObjectContext:self.dataStore.managedObjectContext];
 }
 
 

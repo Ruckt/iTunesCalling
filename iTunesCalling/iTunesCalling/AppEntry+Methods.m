@@ -15,6 +15,7 @@
                     artist:(NSString *)artist
                    summary:(NSString *)summary
                      price:(NSString *)price
+                  sharLink:(NSString *)shareLink
            largePictureURL:(NSString *)largePictureURL
         andSmallPictureURL:(NSString *)smallPictureURL
     inManagedObjectContext:(NSManagedObjectContext *)context {
@@ -28,6 +29,7 @@
     appEntry.price = price;
     appEntry.largePictureURL = largePictureURL;
     appEntry.smallPictureURl = smallPictureURL;
+    appEntry.shareLink = shareLink;
 
     return appEntry;
 }

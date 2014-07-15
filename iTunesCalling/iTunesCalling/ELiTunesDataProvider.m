@@ -101,13 +101,14 @@ NSString* const ITunesURL = @"http://ax.itunes.apple.com/WebObjects/MZStoreServi
                 smallPictueURL = [eachPictureInfo objectForKey:@"label"];
             }
         }
-        NSLog(@"Url: %@", iTunesAppURL);
+        //NSLog(@"Url: %@", iTunesAppURL);
 
         AppEntry *appEntry = [AppEntry appEntryName:appName
                                            idNumber:idNumber
                                              artist:appArtist
                                             summary:appSummary
                                               price:appPrice
+                                           sharLink:iTunesAppURL
                                     largePictureURL:largePictureURL
                                  andSmallPictureURL:smallPictueURL
                              inManagedObjectContext:self.dataStore.managedObjectContext];

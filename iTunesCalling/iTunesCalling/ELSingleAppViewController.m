@@ -53,7 +53,7 @@ static NSInteger const SECOND_COL_WIDTH = 170;
     
     
     [self buildAppEntryView];
-    [self buildShareButtonFunctionality];
+    [self buildShareButtonFunctionality:self.appEntry.shareLink];
 }
 
 
@@ -172,14 +172,14 @@ static NSInteger const SECOND_COL_WIDTH = 170;
 #pragma mark - Share Button Functionatlity
 
 
-- (void)buildShareButtonFunctionality
+- (void)buildShareButtonFunctionality:(NSString *)shareLink
 {
     self.shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareLink)];
     self.navigationItem.rightBarButtonItem = self.shareButton;
     
     
     NSString *textWithLink = @"Check out this cool new app!!";
-    NSURL *appLink = [NSURL URLWithString:@"http://www.ruckt.com/"];
+    NSURL *appLink = [NSURL URLWithString:shareLink];
     
     NSArray *linkToShare = @[textWithLink, appLink];
     

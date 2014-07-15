@@ -15,6 +15,7 @@
                     artist:(NSString *)artist
                    summary:(NSString *)summary
                      price:(NSString *)price
+                  sharLink:(NSString *)shareLink
            largePictureURL:(NSString *)largePictureURL
         andSmallPictureURL:(NSString *)smallPictureURL
     inManagedObjectContext:(NSManagedObjectContext *)context;
