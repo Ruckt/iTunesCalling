@@ -36,6 +36,7 @@ static NSInteger const CELL_HEIGHT = 85;
         self.FetchComplete = NO;
         
         [self createAppEntryPlaceHolder];
+        self.appEntries = [self buildDataArray];
         
         self.appListTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         
@@ -59,8 +60,7 @@ static NSInteger const CELL_HEIGHT = 85;
 - (void)receiveEvent:(NSNotification *)notification {
     NSLog(@"Received iTunes Data Data Data");
     self.FetchComplete = YES;
-    self.appEntries = [self.dataStore appEntryArray];
-    
+    self.appEntries = [self buildDataArray];
     [self.appListTableView reloadData];
 }
 
@@ -78,7 +78,7 @@ static NSInteger const CELL_HEIGHT = 85;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 26;
+    return [self.appEntries count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -87,35 +87,43 @@ static NSInteger const CELL_HEIGHT = 85;
 }
 
 
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ELAppCell *elAppCell = (ELAppCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    AppEntry *appEntry;
+    AppEntry *appEntry = [self.appEntries objectAtIndex:indexPath.row];
 
-    if (self.FetchComplete & (indexPath.row<25)) {
-        appEntry = [self.appEntries objectAtIndex:indexPath.row];
-    }
-    else {
-        appEntry = self.appEntryPlaceHolder;
-    }
-    
     if (!elAppCell) {
-        // This is only being called when you are instantiating the cell for the first time.
         elAppCell = [[ELAppCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier appEntry:appEntry];
     }
     else {
-        // We are re-using a cell. We are not re-instantiating it. We are just going to change its picture.
         [elAppCell configureCellWithAppEntry:appEntry];
     }
-
     return elAppCell;
 }
 
+#pragma mark - Data Array
 
-- (void)createAppEntryPlaceHolder {
+- (NSArray *)buildDataArray
+{
+    NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+    
+    if (self.FetchComplete){
+        
+        dataArray = [self.dataStore appEntryArray];
+        [dataArray addObject:self.appEntryPlaceHolder];
+        
+    }else {
+        
+        for (NSInteger i; i<26; i++) {
+            [dataArray addObject:self.appEntryPlaceHolder];
+        }
+    }
+    
+    return [NSArray arrayWithArray:dataArray];
+}
 
+- (void)createAppEntryPlaceHolder
+{
     self.appEntryPlaceHolder = [AppEntry appEntryName:@"Letter Sort Ultimate Winning Challenge"
                                                idNumber:@44
                                                  artist:@"Curly Day"
@@ -139,7 +147,8 @@ static NSInteger const CELL_HEIGHT = 85;
 */
 
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     AppEntry *appEntry;
     
     if (indexPath.row<25) {

@@ -2,7 +2,7 @@
 //  AppEntry.h
 //  iTunesCalling
 //
-//  Created by Edan Lichtenstein on 7/6/14.
+//  Created by Edan Lichtenstein on 7/14/14.
 //  Copyright (c) 2014 Edan Lichtenstein. All rights reserved.
 //
 
@@ -15,9 +15,10 @@
 @property (nonatomic, retain) NSString * artist;
 @property (nonatomic, retain) NSNumber * idNumber;
 @property (nonatomic, retain) NSString * largePictureURL;
-@property (nonatomic, retain) NSString * smallPictureURl;
-@property (nonatomic, retain) NSString * price;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * price;
+@property (nonatomic, retain) NSString * smallPictureURl;
 @property (nonatomic, retain) NSString * summary;
+@property (nonatomic, retain) NSString * shareLink;
 
 @end

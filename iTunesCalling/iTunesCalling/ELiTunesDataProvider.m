@@ -67,6 +67,7 @@ NSString* const ITunesURL = @"http://ax.itunes.apple.com/WebObjects/MZStoreServi
         
         NSDictionary *appIdDictionary = [eachAppInfo objectForKey:@"id"];
         NSDictionary *subIdDictionary = [appIdDictionary objectForKey:@"attributes"];
+        NSString *iTunesAppURL = [appIdDictionary objectForKey:@"label"];
         NSString *idNumberString = [subIdDictionary objectForKey:@"im:id"];
         NSNumber *idNumber = @([idNumberString integerValue]);
         //NSLog(@"App ID: %@", idNumber);
@@ -100,6 +101,7 @@ NSString* const ITunesURL = @"http://ax.itunes.apple.com/WebObjects/MZStoreServi
                 smallPictueURL = [eachPictureInfo objectForKey:@"label"];
             }
         }
+        NSLog(@"Url: %@", iTunesAppURL);
 
         AppEntry *appEntry = [AppEntry appEntryName:appName
                                            idNumber:idNumber
@@ -114,8 +116,7 @@ NSString* const ITunesURL = @"http://ax.itunes.apple.com/WebObjects/MZStoreServi
 
     }
     
-    
-    NSLog(@"entries: %ld", (long)[self.dataStore numberOfAppEntries]);
+    //NSLog(@"entries: %ld", (long)[self.dataStore numberOfAppEntries]);
     
 }
 

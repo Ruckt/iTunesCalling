@@ -24,11 +24,12 @@
 		E221911F195C5E34001004F4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2219103195C5E34001004F4 /* CoreData.framework */; };
 		E2219127195C5E34001004F4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2219125195C5E34001004F4 /* InfoPlist.strings */; };
 		E2219129195C5E34001004F4 /* iTunesCallingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2219128195C5E34001004F4 /* iTunesCallingTests.m */; };
+		E22D5E3E197486B900D8B490 /* AppEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = E22D5E3D197486B900D8B490 /* AppEntry.m */; };
+		E22D5E40197571BC00D8B490 /* ELMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E22D5E3F197571BC00D8B490 /* ELMain.storyboard */; };
 		E28B9477195CF9DC0076E845 /* ELDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E28B9476195CF9DC0076E845 /* ELDataStore.m */; };
 		E28BCC3019709945008970A3 /* ELSingleAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BCC2F19709945008970A3 /* ELSingleAppViewController.m */; };
 		E2B9F7DD1969013E00411C1A /* ELiTunesDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B9F7DC1969013E00411C1A /* ELiTunesDataProvider.m */; };
 		E2B9F7E4196906EE00411C1A /* ELAppListTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B9F7E3196906EE00411C1A /* ELAppListTableVC.m */; };
-		E2B9F7ED1969B18A00411C1A /* AppEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B9F7EC1969B18A00411C1A /* AppEntry.m */; };
 		E2B9F7F01969B9FD00411C1A /* AppEntry+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B9F7EF1969B9FD00411C1A /* AppEntry+Methods.m */; };
 		E2B9F7F3196B2DCD00411C1A /* ELAppCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B9F7F2196B2DCD00411C1A /* ELAppCell.m */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,9 @@
 		E2219124195C5E34001004F4 /* iTunesCallingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iTunesCallingTests-Info.plist"; sourceTree = "<group>"; };
 		E2219126195C5E34001004F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E2219128195C5E34001004F4 /* iTunesCallingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iTunesCallingTests.m; sourceTree = "<group>"; };
+		E22D5E3C197486B900D8B490 /* AppEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppEntry.h; sourceTree = "<group>"; };
+		E22D5E3D197486B900D8B490 /* AppEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppEntry.m; sourceTree = "<group>"; };
+		E22D5E3F197571BC00D8B490 /* ELMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ELMain.storyboard; sourceTree = "<group>"; };
 		E28B9475195CF9DC0076E845 /* ELDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDataStore.h; sourceTree = "<group>"; };
 		E28B9476195CF9DC0076E845 /* ELDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDataStore.m; sourceTree = "<group>"; };
 		E28BCC2E19709945008970A3 /* ELSingleAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSingleAppViewController.h; sourceTree = "<group>"; };
@@ -73,8 +77,6 @@
 		E2B9F7DC1969013E00411C1A /* ELiTunesDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELiTunesDataProvider.m; sourceTree = "<group>"; };
 		E2B9F7E2196906EE00411C1A /* ELAppListTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAppListTableVC.h; sourceTree = "<group>"; };
 		E2B9F7E3196906EE00411C1A /* ELAppListTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAppListTableVC.m; sourceTree = "<group>"; };
-		E2B9F7EB1969B18A00411C1A /* AppEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppEntry.h; sourceTree = "<group>"; };
-		E2B9F7EC1969B18A00411C1A /* AppEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppEntry.m; sourceTree = "<group>"; };
 		E2B9F7EE1969B9FD00411C1A /* AppEntry+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppEntry+Methods.h"; sourceTree = "<group>"; };
 		E2B9F7EF1969B9FD00411C1A /* AppEntry+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppEntry+Methods.m"; sourceTree = "<group>"; };
 		E2B9F7F1196B2DCD00411C1A /* ELAppCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAppCell.h; sourceTree = "<group>"; };
@@ -190,9 +192,9 @@
 		E2B9F7DA1968DE3400411C1A /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				E22D5E3C197486B900D8B490 /* AppEntry.h */,
+				E22D5E3D197486B900D8B490 /* AppEntry.m */,
 				E2219111195C5E34001004F4 /* iTunesCalling.xcdatamodeld */,
-				E2B9F7EB1969B18A00411C1A /* AppEntry.h */,
-				E2B9F7EC1969B18A00411C1A /* AppEntry.m */,
 				E2B9F7EE1969B9FD00411C1A /* AppEntry+Methods.h */,
 				E2B9F7EF1969B9FD00411C1A /* AppEntry+Methods.m */,
 				E28B9475195CF9DC0076E845 /* ELDataStore.h */,
@@ -215,6 +217,7 @@
 		E2B9F7F4196B2EAC00411C1A /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				E22D5E3F197571BC00D8B490 /* ELMain.storyboard */,
 				E2B9F7F1196B2DCD00411C1A /* ELAppCell.h */,
 				E2B9F7F2196B2DCD00411C1A /* ELAppCell.m */,
 			);
@@ -301,6 +304,7 @@
 			files = (
 				E2181722196C7C0800285E0C /* holdingpattern.png in Resources */,
 				E221910A195C5E34001004F4 /* InfoPlist.strings in Resources */,
+				E22D5E40197571BC00D8B490 /* ELMain.storyboard in Resources */,
 				E2219115195C5E34001004F4 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,9 +357,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2B9F7ED1969B18A00411C1A /* AppEntry.m in Sources */,
 				E28B9477195CF9DC0076E845 /* ELDataStore.m in Sources */,
 				E221910C195C5E34001004F4 /* main.m in Sources */,
+				E22D5E3E197486B900D8B490 /* AppEntry.m in Sources */,
 				E2B9F7F3196B2DCD00411C1A /* ELAppCell.m in Sources */,
 				E2B9F7E4196906EE00411C1A /* ELAppListTableVC.m in Sources */,
 				E2219110195C5E34001004F4 /* ELAppDelegate.m in Sources */,

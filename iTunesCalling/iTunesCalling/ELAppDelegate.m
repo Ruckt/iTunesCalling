@@ -23,7 +23,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
     [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     self.dataStore = [ELDataStore sharedELDataStore];
     ELiTunesDataProvider *iTunesDataProvider = [[ELiTunesDataProvider alloc] init];

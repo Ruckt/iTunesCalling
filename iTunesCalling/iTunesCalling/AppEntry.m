@@ -2,7 +2,7 @@
 //  AppEntry.m
 //  iTunesCalling
 //
-//  Created by Edan Lichtenstein on 7/6/14.
+//  Created by Edan Lichtenstein on 7/14/14.
 //  Copyright (c) 2014 Edan Lichtenstein. All rights reserved.
 //
 
@@ -14,9 +14,10 @@
 @dynamic artist;
 @dynamic idNumber;
 @dynamic largePictureURL;
-@dynamic smallPictureURl;
-@dynamic price;
 @dynamic name;
+@dynamic price;
+@dynamic smallPictureURl;
 @dynamic summary;
+@dynamic shareLink;
 
 @end
