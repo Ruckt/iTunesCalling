@@ -23,6 +23,7 @@ static NSInteger const SECOND_COL_WIDTH = 170;
 @property(nonatomic, strong) UILabel *appNameLabel;
 @property(nonatomic, strong) UILabel *appSummaryLabel;
 @property(nonatomic, strong) UILabel *appPriceLabel;
+@property(nonatomic, strong) UIButton *addToFavoritesButton;
 @property(nonatomic, strong) UIImageView *appImageView;
 @property(nonatomic, strong) UIBarButtonItem *shareButton;
 //@property(nonatomic, strong) UIActivityViewController *activityVC;
@@ -69,8 +70,11 @@ static NSInteger const SECOND_COL_WIDTH = 170;
     CGFloat yImageCoordinate = 2*SPACE_BETWEEN + self.appNameLabel.frame.size.height;
     self.appImageView = [self buildImageView:self.appEntry.largePictureURL atYCoordinate:yImageCoordinate];
     
+    CGFloat yButtonCoordinate = 3*SPACE_BETWEEN +self.appNameLabel.frame.size.height + self.appImageView.frame.size.height;
+    self.addToFavoritesButton = [self buildAddToFavoritesButtonAtYCoordinate:yButtonCoordinate];
+
     //Summary Label
-    CGFloat ySummaryCoordinate = 3*SPACE_BETWEEN +self.appNameLabel.frame.size.height + self.appImageView.frame.size.height;
+    CGFloat ySummaryCoordinate = 4*SPACE_BETWEEN + self.appNameLabel.frame.size.height + self.appImageView.frame.size.height + self.addToFavoritesButton.frame.size.height;
     self.appSummaryLabel = [self buildSummaryLabel:self.appEntry.summary atYCoordinate:ySummaryCoordinate];
     
     //Calculating height size of view
@@ -89,6 +93,7 @@ static NSInteger const SECOND_COL_WIDTH = 170;
     
     [self.appEntryView addSubview:self.appNameLabel];
     [self.appEntryView addSubview:self.appImageView];
+    [self.appEntryView addSubview:self.addToFavoritesButton];
     [self.appEntryView addSubview:self.appSummaryLabel];
     [self.appEntryView addSubview:self.appArtistLabel];
     [self.appEntryView addSubview:self.appPriceLabel];
@@ -132,6 +137,17 @@ static NSInteger const SECOND_COL_WIDTH = 170;
     return imageView;
 }
 
+-(UIButton *)buildAddToFavoritesButtonAtYCoordinate: (CGFloat)yCoordinate
+{
+    UIButton *favoriteThisButton = [[UIButton alloc] initWithFrame:CGRectMake(X_COORDINATE+10, yCoordinate, PICTURE_SIDE, 20)];
+    [favoriteThisButton setTitle:@"Favor This!" forState:UIControlStateNormal];
+    favoriteThisButton.backgroundColor = [UIColor redColor];
+    
+    [favoriteThisButton addTarget:self action:@selector(favorThis) forControlEvents:UIControlEventTouchUpInside];
+    
+    return favoriteThisButton;
+}
+
 -(UILabel *)buildSummaryLabel: (NSString *)summary atYCoordinate: (CGFloat)yCoordinate
 {
     UILabel *summaryLabel = [[UILabel alloc] initWithFrame:CGRectMake(X_COORDINATE, yCoordinate, WIDTH, 0)];
@@ -169,6 +185,13 @@ static NSInteger const SECOND_COL_WIDTH = 170;
     return priceLabel;
 }
 
+#pragma mark - Favorite Button
+
+-(void)favorThis
+{
+    NSLog(@"I want to add this to my favorite");
+}
+
 
 #pragma mark - Share Button Functionatlity
 
@@ -179,7 +202,6 @@ static NSInteger const SECOND_COL_WIDTH = 170;
     self.navigationItem.rightBarButtonItem = self.shareButton;
 
 }
-
 
 
 - (void)shareLinkFunctionality

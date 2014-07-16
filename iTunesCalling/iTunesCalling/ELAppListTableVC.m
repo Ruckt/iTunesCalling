@@ -30,31 +30,32 @@ static NSInteger const CELL_HEIGHT = 85;
     self = [super initWithStyle:style];
     if (self) {
         
-    
-        [self setTitle:@"Happy iTunes"];
         self.dataStore = [ELDataStore sharedELDataStore];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveEvent:) name:@"FetchComplete" object:nil];
-        self.FetchComplete = NO;
-        
-        [self createAppEntryPlaceHolder];
-        self.appEntries = [self buildDataArray];
-        NSLog(@"self appEntres %@", self.appEntries);
-        
         self.appListTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         
         self.appListTableView.delegate = self;
         self.appListTableView.dataSource = self;
+       self.FetchComplete = NO;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveEvent:) name:@"FetchComplete" object:nil];
+    
+        [self setTitle:@"Happy iTunes"];
         
  
         
-        //    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        //    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+        [self createAppEntryPlaceHolder];
+        self.appEntries = [self buildDataArray];
         
+        UIBarButtonItem *favoriteButton = [[UIBarButtonItem alloc] initWithTitle:@"Favorites" style:UIBarButtonItemStyleBordered target:self action:@selector(showFavorites)];
+        self.navigationItem.rightBarButtonItem=favoriteButton;
         
         [self.view addSubview:self.appListTableView];
         
     }
     return self;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 #pragma mark - NSNotification Center
@@ -66,9 +67,9 @@ static NSInteger const CELL_HEIGHT = 85;
     [self.appListTableView reloadData];
 }
 
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
+//- (void)dealloc {
+//    [[NSNotificationCenter defaultCenter] removeObserver:self];
+//}
 
 
 #pragma mark - Table view data source
@@ -102,6 +103,8 @@ static NSInteger const CELL_HEIGHT = 85;
     }
     return elAppCell;
 }
+
+
 
 #pragma mark - Data Array
 
@@ -148,6 +151,12 @@ static NSInteger const CELL_HEIGHT = 85;
 }
 */
 
+#pragma mark - Navigation
+
+- (void)showFavorites
+{
+    NSLog(@"Display favorites");
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

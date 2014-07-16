@@ -30,11 +30,6 @@ static NSInteger const ARTIST_Y_COORDINATE = 65;
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
 
-        
-        
-        self.appNameLabel = [[UILabel alloc] init];
-        self.thumbnailImageView = [[UIImageView alloc] init];
-        
         self.appNameLabel = [self buildAppNameLabel:appEntry.name];
         self.thumbnailImageView = [self buildThumbnailImageView:appEntry.smallPictureURl];
         self.appArtistLabel = [self buildAppArtistLabel:appEntry.artist];
@@ -48,17 +43,13 @@ static NSInteger const ARTIST_Y_COORDINATE = 65;
 
 - (void)configureCellWithAppEntry:(AppEntry *)appEntry{
     
-    
     dispatch_queue_t fetchQ = dispatch_queue_create("ConfigureCell", NULL);
     dispatch_async(fetchQ, ^{
         
-    
-    
         NSURL *address = [NSURL URLWithString:appEntry.smallPictureURl];
         UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:address]];
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            //NSLog(@"Configuring cell: %@",appEntry.name);
             self.appNameLabel.text = appEntry.name;
             self.thumbnailImageView.image = image;
             self.appArtistLabel.text = [NSString stringWithFormat:@"By %@", appEntry.artist];

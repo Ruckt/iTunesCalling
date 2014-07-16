@@ -35,6 +35,11 @@ NSString* const ITunesURL = @"http://ax.itunes.apple.com/WebObjects/MZStoreServi
      [[NSNotificationCenter defaultCenter] postNotificationName:@"FetchComplete" object:nil];
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
 #pragma mark - iTunes Fetching
 
 - (void)startiTunesFetch
