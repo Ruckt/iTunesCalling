@@ -68,7 +68,7 @@ NSString* const ITunesURL = @"http://ax.itunes.apple.com/WebObjects/MZStoreServi
         
         NSDictionary *appNameDictionary = [eachAppInfo objectForKey:@"im:name"];
         NSString *appName = [appNameDictionary objectForKey:@"label"];
-        NSLog(@"Name: %@", appName);
+        //NSLog(@"Name: %@", appName);
         
         NSDictionary *appIdDictionary = [eachAppInfo objectForKey:@"id"];
         NSDictionary *subIdDictionary = [appIdDictionary objectForKey:@"attributes"];
@@ -119,7 +119,6 @@ NSString* const ITunesURL = @"http://ax.itunes.apple.com/WebObjects/MZStoreServi
                              inManagedObjectContext:self.dataStore.managedObjectContext];
         
         [self.dataStore addAppEntry:appEntry];
-
     }
     
     //NSLog(@"entries: %ld", (long)[self.dataStore numberOfAppEntries]);

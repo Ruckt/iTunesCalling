@@ -10,6 +10,7 @@
 #import "ELDataStore.h"
 #import "ELSingleAppViewController.h"
 #import "AppEntry+Methods.h"
+#import "ELFavoritesTableViewController.h"
 
 static NSString *CellIdentifier = @"appCell";
 static NSInteger const CELL_HEIGHT = 85;
@@ -35,7 +36,7 @@ static NSInteger const CELL_HEIGHT = 85;
         
         self.appListTableView.delegate = self;
         self.appListTableView.dataSource = self;
-       self.FetchComplete = NO;
+        self.FetchComplete = NO;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveEvent:) name:@"FetchComplete" object:nil];
     
         [self setTitle:@"Happy iTunes"];
@@ -54,9 +55,14 @@ static NSInteger const CELL_HEIGHT = 85;
     return self;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+
+-(BOOL)shouldAutorotate {
+    return NO;
 }
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+//{
+//    return NO;
+//}
 
 #pragma mark - NSNotification Center
 
@@ -94,15 +100,32 @@ static NSInteger const CELL_HEIGHT = 85;
 {
     ELAppCell *elAppCell = (ELAppCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     AppEntry *appEntry = [self.appEntries objectAtIndex:indexPath.row];
-
+    
     if (!elAppCell) {
         elAppCell = [[ELAppCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier appEntry:appEntry];
     }
-    else {
-        [elAppCell configureCellWithAppEntry:appEntry];
-    }
+    
+    [elAppCell configureCellWithAppEntry:appEntry];
+    elAppCell.thumbnailImageView.image = nil;
+
+    
+    dispatch_queue_t fetchQ = dispatch_queue_create("ConfigureCell", NULL);
+    dispatch_async(fetchQ, ^{
+
+        NSURL *address = [NSURL URLWithString:appEntry.smallPictureURL];
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:address]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            ELAppCell *updateCell = (ELAppCell *)[tableView cellForRowAtIndexPath:indexPath];
+            if (updateCell) { // if nil then cell is not visible hence no need to update
+                updateCell.thumbnailImageView.image = image;
+            }
+        });
+    });
+    
     return elAppCell;
 }
+
 
 
 
@@ -114,7 +137,6 @@ static NSInteger const CELL_HEIGHT = 85;
     NSMutableArray *dataArray = [[NSMutableArray alloc] init];
 
     if (self.FetchComplete){
-        
         dataArray = [self.dataStore appEntryArray];
         [dataArray addObject:self.appEntryPlaceHolder];
     }else {
@@ -155,8 +177,18 @@ static NSInteger const CELL_HEIGHT = 85;
 
 - (void)showFavorites
 {
-    NSLog(@"Display favorites");
+    //[self.dataStore fetchFavorites];
+     NSLog(@"Display these favorites: %@", [self.dataStore favoriteAppArray]);
+    NSLog(@"Number of favorites: %ld", [[self.dataStore favoriteAppArray] count]);
+
+
+    ELFavoritesTableViewController *favoriteTableVC = [[ELFavoritesTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    [self.navigationController pushViewController:favoriteTableVC animated:YES];
+    
 }
+
+
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -168,7 +200,6 @@ static NSInteger const CELL_HEIGHT = 85;
     else {
         appEntry = self.appEntryPlaceHolder;
     }
-    
     
     ELSingleAppViewController *singleAppViewController = [[ELSingleAppViewController alloc] initWithAppEntry:appEntry];
     [self.navigationController pushViewController:singleAppViewController animated:YES];

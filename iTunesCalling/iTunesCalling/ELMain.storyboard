@@ -4,11 +4,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller - Root View Controller-->
+        <!--App List TableVC - Root View Controller-->
         <scene sceneID="DSF-Cm-Dvl">
             <objects>
-                <tableViewController id="rRD-uM-aVw" sceneMemberID="viewController">
+                <tableViewController id="rRD-uM-aVw" customClass="ELAppListTableVC" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Root View Controller" id="nG4-oE-30e"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jAw-de-KUQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -18,6 +19,7 @@
         <scene sceneID="MJO-dF-2Tt">
             <objects>
                 <navigationController definesPresentationContext="YES" id="c1W-Dv-8ez" sceneMemberID="viewController">
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hus-oF-xps">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

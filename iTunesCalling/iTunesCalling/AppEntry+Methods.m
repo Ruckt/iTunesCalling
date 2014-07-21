@@ -20,7 +20,7 @@
         andSmallPictureURL:(NSString *)smallPictureURL
     inManagedObjectContext:(NSManagedObjectContext *)context {
     
-    AppEntry *appEntry =  [NSEntityDescription insertNewObjectForEntityForName:@"AppEntry" inManagedObjectContext:context];
+    AppEntry *appEntry =[NSEntityDescription insertNewObjectForEntityForName:@"AppEntry" inManagedObjectContext:context];
     
     appEntry.name = name;
     appEntry.idNumber = number;
@@ -28,9 +28,16 @@
     appEntry.summary = summary;
     appEntry.price = price;
     appEntry.largePictureURL = largePictureURL;
-    appEntry.smallPictureURl = smallPictureURL;
+    appEntry.smallPictureURL = smallPictureURL;
     appEntry.shareLink = shareLink;
 
     return appEntry;
 }
+
+- (void) saveToContext {
+    
+    NSError *error = nil;
+    [self.managedObjectContext save:&error];
+}
+
 @end

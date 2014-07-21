@@ -13,6 +13,6 @@
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier appEntry:(AppEntry *)appEntry;
 - (void)configureCellWithAppEntry:(AppEntry *)appEntry;
-
+@property(nonatomic, strong) UIImageView *thumbnailImageView;
 
 @end

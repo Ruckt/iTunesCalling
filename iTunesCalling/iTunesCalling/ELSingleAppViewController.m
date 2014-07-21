@@ -7,6 +7,8 @@
 //
 
 #import "ELSingleAppViewController.h"
+#import "ELDataStore.h"
+#import "FavoriteApp+Methods.h"
 
 static NSInteger const SPACE_BETWEEN = 15;
 static NSInteger const X_COORDINATE = 10;
@@ -18,6 +20,7 @@ static NSInteger const SECOND_COL_WIDTH = 170;
 @interface ELSingleAppViewController ()
 
 @property(nonatomic, strong) AppEntry *appEntry;
+@property(nonatomic, strong) ELDataStore *dataStore;
 
 @property(nonatomic, strong) UILabel *appArtistLabel;
 @property(nonatomic, strong) UILabel *appNameLabel;
@@ -26,8 +29,6 @@ static NSInteger const SECOND_COL_WIDTH = 170;
 @property(nonatomic, strong) UIButton *addToFavoritesButton;
 @property(nonatomic, strong) UIImageView *appImageView;
 @property(nonatomic, strong) UIBarButtonItem *shareButton;
-//@property(nonatomic, strong) UIActivityViewController *activityVC;
-
 
 @end
 
@@ -35,12 +36,13 @@ static NSInteger const SECOND_COL_WIDTH = 170;
 
 
 
-- (ELSingleAppViewController *)initWithAppEntry:(AppEntry *)appEntry {
+- (ELSingleAppViewController *)initWithAppEntry:(AppEntry *)appEntry
+{
     self = [super init];
     if (self) {
         self.appEntry = appEntry;
+        self.dataStore = [ELDataStore sharedELDataStore];
     }
-    
     return self;
 }
 
@@ -48,16 +50,10 @@ static NSInteger const SECOND_COL_WIDTH = 170;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
     [self.view setBackgroundColor: [UIColor whiteColor]];
-    
-    
     [self buildAppEntryView];
-   
     [self buildShareButton];
 }
-
 
 
 -(void) buildAppEntryView
@@ -88,7 +84,6 @@ static NSInteger const SECOND_COL_WIDTH = 170;
     //App price
     CGFloat yPriceCoordinate = 3*SPACE_BETWEEN + self.appNameLabel.frame.size.height + self.appArtistLabel.frame.size.height;
     self.appPriceLabel = [self buildAppPriceLabel:self.appEntry.price atYCoordinate:yPriceCoordinate];
-    
     
     
     [self.appEntryView addSubview:self.appNameLabel];
@@ -139,14 +134,16 @@ static NSInteger const SECOND_COL_WIDTH = 170;
 
 -(UIButton *)buildAddToFavoritesButtonAtYCoordinate: (CGFloat)yCoordinate
 {
-    UIButton *favoriteThisButton = [[UIButton alloc] initWithFrame:CGRectMake(X_COORDINATE+10, yCoordinate, PICTURE_SIDE, 20)];
-    [favoriteThisButton setTitle:@"Favor This!" forState:UIControlStateNormal];
-    favoriteThisButton.backgroundColor = [UIColor redColor];
+    UIButton *favoriteThisButton = [[UIButton alloc] initWithFrame:CGRectMake(X_COORDINATE, yCoordinate, 150, 30)];
+    [favoriteThisButton setTitle:@"Favor This App!" forState:UIControlStateNormal];
+    [favoriteThisButton.titleLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:15]];
+    favoriteThisButton.backgroundColor = [UIColor colorWithRed:0.5 green:0 blue:0 alpha:1 ];
     
     [favoriteThisButton addTarget:self action:@selector(favorThis) forControlEvents:UIControlEventTouchUpInside];
     
     return favoriteThisButton;
 }
+
 
 -(UILabel *)buildSummaryLabel: (NSString *)summary atYCoordinate: (CGFloat)yCoordinate
 {
@@ -189,8 +186,27 @@ static NSInteger const SECOND_COL_WIDTH = 170;
 
 -(void)favorThis
 {
-    NSLog(@"I want to add this to my favorite");
+    
+    FavoriteApp *favoriteApp = [FavoriteApp appEntryName:self.appEntry.name
+                                                idNumber:self.appEntry.idNumber
+                                                  artist:self.appEntry.artist
+                                                 summary:self.appEntry.summary
+                                                   price:self.appEntry.price
+                                                sharLink:self.appEntry.shareLink
+                                         largePictureURL:self.appEntry.largePictureURL
+                                      andSmallPictureURL:self.appEntry.smallPictureURL
+                                  inManagedObjectContext:self.dataStore.managedObjectContext];
+    
+    [self.dataStore addFavoriteApps:favoriteApp];
+    
+    [self.dataStore saveContext];
+    //NSLog(@"My favorite app: %@", self.dataStore.favoriteApps);
+    NSLog(@"Number of favorites here here: %ld", [[self.dataStore favoriteAppArray] count]);
+
 }
+
+
+
 
 
 #pragma mark - Share Button Functionatlity

@@ -8,17 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "AppEntry.h"
+#import "AppEntry+Methods.h"
 
 @class AppEntry;
+@class FavoriteApp;
 
 @interface ELDataStore : NSObject
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-@property (nonatomic, strong) NSMutableArray *appEntryArray;
 
+@property (nonatomic, strong) NSMutableArray *appEntryArray;
+@property (nonatomic, strong) NSMutableArray *favoriteAppArray;
 
 + (ELDataStore *)sharedELDataStore;
 - (void)saveContext;
@@ -28,6 +30,7 @@
 - (NSInteger)numberOfAppEntries;
 - (AppEntry *)getAppEntryAtIndex:(NSInteger)index;
 
-
+- (void)addFavoriteApps:(FavoriteApp *)appEntry;
+- (void)fetchFavorites;
 
 @end

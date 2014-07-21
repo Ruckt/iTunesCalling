@@ -19,7 +19,7 @@ static NSInteger const ARTIST_Y_COORDINATE = 65;
 
 @property(nonatomic, strong) UILabel *appNameLabel;
 @property(nonatomic, strong) UILabel *appArtistLabel;
-@property(nonatomic, strong) UIImageView *thumbnailImageView;
+
 
 @end
 
@@ -31,7 +31,7 @@ static NSInteger const ARTIST_Y_COORDINATE = 65;
     if (self) {
 
         self.appNameLabel = [self buildAppNameLabel:appEntry.name];
-        self.thumbnailImageView = [self buildThumbnailImageView:appEntry.smallPictureURl];
+        self.thumbnailImageView = [self buildThumbnailImageView:appEntry.smallPictureURL];
         self.appArtistLabel = [self buildAppArtistLabel:appEntry.artist];
         
         [self.contentView addSubview:self.appNameLabel];
@@ -41,23 +41,27 @@ static NSInteger const ARTIST_Y_COORDINATE = 65;
     return self;
 }
 
-- (void)configureCellWithAppEntry:(AppEntry *)appEntry{
-    
-    dispatch_queue_t fetchQ = dispatch_queue_create("ConfigureCell", NULL);
-    dispatch_async(fetchQ, ^{
-        
-        NSURL *address = [NSURL URLWithString:appEntry.smallPictureURl];
-        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:address]];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            self.appNameLabel.text = appEntry.name;
-            self.thumbnailImageView.image = image;
-            self.appArtistLabel.text = [NSString stringWithFormat:@"By %@", appEntry.artist];
-            
-        });
-    });
-}
+//- (void)configureCellWithAppEntry:(AppEntry *)appEntry{
+//    
+//    dispatch_queue_t fetchQ = dispatch_queue_create("ConfigureCell", NULL);
+//    dispatch_async(fetchQ, ^{
+//        
+//        NSURL *address = [NSURL URLWithString:appEntry.smallPictureURl];
+//        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:address]];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            
+//            self.appNameLabel.text = appEntry.name;
+//            self.thumbnailImageView.image = image;
+//            self.appArtistLabel.text = [NSString stringWithFormat:@"By %@", appEntry.artist];
+//            
+//        });
+//    });
+//}
 
+- (void)configureCellWithAppEntry:(AppEntry *)appEntry {
+    self.appNameLabel.text = appEntry.name;
+    self.appArtistLabel.text = [NSString stringWithFormat:@"By %@", appEntry.artist];
+}
 
 
 -(UILabel *)buildAppNameLabel: (NSString *)appName

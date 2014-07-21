@@ -10,8 +10,6 @@
 
 @interface ELDataStore ()
 
-//@property (nonatomic, strong) NSMutableArray *appEntryArray;
-
 @end
 
 
@@ -51,8 +49,6 @@
 }
 
 - (void)addAppEntry:(AppEntry *)appEntry {
-
-     //NSLog(@"Adding app Entry: %@", appEntry.name);
     [self.appEntryArray addObject:appEntry];
 }
 
@@ -70,8 +66,55 @@
 }
 
 
+#pragma mark - Favorite App Methods
+
+- (NSArray *)favoriteAppArray {
+    
+    if (!_favoriteAppArray)
+    {
+        _favoriteAppArray = [NSMutableArray new];
+    }
+    return _favoriteAppArray;
+    
+}
+
+- (void)addFavoriteApps:(FavoriteApp *)favoriteApp{
+    [self.favoriteAppArray addObject:favoriteApp];
+    NSLog(@"My favorite apps: %@", self.favoriteAppArray);
+}
+//    favoriteApp =[NSEntityDescription insertNewObjectForEntityForName:@"FavoriteApp" inManagedObjectContext:self.managedObjectContext];
+//    
+//    NSLog(@"My favorite apps: %@", favoriteApp);
+//    NSMutableArray *tempArray = [[NSMutableArray alloc] initWithArray:self.favoriteApps];
+//    NSLog(@"My self. favorite: %@", self.favoriteApps);
+//    [tempArray addObject:favoriteApp];
+//    
+//    NSLog(@"My favorite apps: %@", tempArray);
+//    
+//    _favoriteApps = [[NSArray alloc] initWithArray:tempArray];
+//    
+//    [self saveContext];
+//    
 
 
+//
+//- (void)fetchFavorites {
+//    
+//    NSFetchRequest *favoritesFetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"FavoriteApp"];
+//    
+//    NSError *error;
+//    
+//    self.favoriteAppArray = [self.managedObjectContext executeFetchRequest:favoritesFetchRequest error:&error];
+//    if (error)
+//    {
+//        NSLog(@"%@",error);
+//    }
+//    
+//}
+
+
+
+#pragma mark - Context
 
 - (void)saveContext
 {
