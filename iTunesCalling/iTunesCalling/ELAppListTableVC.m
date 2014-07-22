@@ -97,12 +97,16 @@ static NSInteger const CELL_HEIGHT = 85;
 {
     ELAppCell *elAppCell = (ELAppCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     AppEntry *appEntry = [self.appEntries objectAtIndex:indexPath.row];
+
+    
     
     if (!elAppCell) {
         elAppCell = [[ELAppCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier appEntry:appEntry];
     }
     
     [elAppCell configureCellWithAppEntry:appEntry];
+    
+    
     elAppCell.thumbnailImageView.image = nil;
 
     
@@ -122,9 +126,6 @@ static NSInteger const CELL_HEIGHT = 85;
     
     return elAppCell;
 }
-
-
-
 
 #pragma mark - Data Array
 
