@@ -98,6 +98,26 @@ static NSInteger const CELL_HEIGHT = 85;
     return favoriteCell;
 }
 
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    ELAppCell *favoriteCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+//    
+//    [self configureCell:favoriteCell forIndexPath:indexPath];
+//    
+//    return favoriteCell;
+//}
+//
+//- (void)configureCell:(ELAppCell *)cell forIndexPath:(NSIndexPath *)indexPath
+//{
+//    FavoriteApp *favoriteApp = [self.favoriteApps objectAtIndex:indexPath.row];
+//    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//        
+//        ELAppCell *appCell = (ELAppCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+//        appCell.pugImageView.image= self.images[indexPath];
+//        cell.pugImageView.image = self.images[indexPath];
+//    }];
+//}
+
 
  #pragma mark - Navigation
 
