@@ -117,15 +117,8 @@ NSString* const ITunesURL = @"http://ax.itunes.apple.com/WebObjects/MZStoreServi
                                          andSmallPictureURL:smallPictueURL];
 
         [self.dataStore.appEntryArray addObject:appEntry];
-        
- //       [self.applicationListArray addObject:appEntry];
-        
-        
-       
-        
     }
-    NSLog(@"entries: %ld", (long)[self.dataStore.appEntryArray count]);
-    
+//    NSLog(@"entries: %ld", (long)[self.dataStore.appEntryArray count]);
 }
 
 @end

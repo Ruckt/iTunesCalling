@@ -200,7 +200,7 @@ static NSInteger const SECOND_COL_WIDTH = 170;
     [self.dataStore.favoriteAppArray addObject:favoriteApp];
     
     [self.dataStore saveContext];
-     NSLog(@"Favorite Apps: %@", self.dataStore.favoriteAppArray);
+    NSLog(@"Favorite Apps: %@", self.dataStore.favoriteAppArray);
     NSLog(@"Number of favorites here here: %ld", [[self.dataStore favoriteAppArray] count]);
     
 

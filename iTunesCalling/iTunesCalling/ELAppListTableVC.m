@@ -39,7 +39,7 @@ static NSInteger const CELL_HEIGHT = 85;
         self.FetchComplete = NO;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveEvent:) name:@"FetchComplete" object:nil];
     
-        [self setTitle:@"Happy iTunes"];
+        [self setTitle:@"Top Apps"];
         
  
         
@@ -173,16 +173,12 @@ static NSInteger const CELL_HEIGHT = 85;
 
 - (void)showFavorites
 {
-    //[self.dataStore fetchFavorites];
-    //NSLog(@"Display these favorites: %@", [self.dataStore favoriteAppArray]);
-    //NSLog(@"Number of favorites: %ld", [[self.dataStore favoriteAppArray] count]);
-
+    NSLog(@"Number of favorites: %ld", [self.dataStore.favoriteAppArray count]);
 
     ELFavoritesTableViewController *favoriteTableVC = [[ELFavoritesTableViewController alloc] initWithStyle:UITableViewStylePlain];
     [self.navigationController pushViewController:favoriteTableVC animated:YES];
     
 }
-
 
 
 
@@ -200,6 +196,8 @@ static NSInteger const CELL_HEIGHT = 85;
     ELSingleAppViewController *singleAppViewController = [[ELSingleAppViewController alloc] initWithAppEntry:appEntry];
     [self.navigationController pushViewController:singleAppViewController animated:YES];
 }
+
+
 
 
 @end

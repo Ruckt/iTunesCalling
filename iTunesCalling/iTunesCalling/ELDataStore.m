@@ -76,6 +76,30 @@
     
 }
 
+- (NSFetchedResultsController *) fetchedFavoriteResultsController
+{
+    if (!_fetchedFavoriteResultsController)
+    {
+        NSFetchRequest *favoriteFetch = [[NSFetchRequest alloc] initWithEntityName:@"FavoriteApp"];
+        favoriteFetch.fetchBatchSize = 26;
+        
+        //   NSPredicate *toDoPredicate = [NSPredicate predicateWithFormat:@"list == %@" , self.listInQuestion];
+        // toDosFetch.predicate = toDoPredicate;
+        
+        NSSortDescriptor *alphabetical = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+        favoriteFetch.sortDescriptors = @[alphabetical];
+        
+        _fetchedFavoriteResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:favoriteFetch managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"fetchFavoriteResultsCache"];
+        
+        [_fetchedFavoriteResultsController performFetch:nil];
+    }
+    
+    return _fetchedFavoriteResultsController;
+}
+
+
+
+
 //- (void)addFavoriteApps:(FavoriteApp *)favoriteApp{
 //    [self.favoriteAppArray addObject:favoriteApp];
 //    NSLog(@"My favorite apps: %@", self.favoriteAppArray);

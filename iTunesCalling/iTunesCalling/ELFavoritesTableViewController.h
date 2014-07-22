@@ -12,5 +12,4 @@
 
 @property UITableView *favoritesTableView;
 
-
 @end

@@ -18,6 +18,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+@property (nonatomic, strong) NSFetchedResultsController *fetchedFavoriteResultsController;
 @property (nonatomic, strong) NSMutableArray *appEntryArray;
 @property (nonatomic, strong) NSMutableArray *favoriteAppArray;
 
