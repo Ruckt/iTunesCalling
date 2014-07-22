@@ -186,26 +186,36 @@ static NSInteger const SECOND_COL_WIDTH = 170;
 
 -(void)favorThis
 {
+    if ([self.dataStore previouslyFavorited:self.appEntry.idNumber]) {
+        
+        NSLog(@"Your love for this app is already known!");
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Your love for this app is already known!"
+                                                          message:nil
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
+    }
+    else
+    {
+        NSLog(@"New favorite App");
     
-    FavoriteApp *favoriteApp = [FavoriteApp appEntryName:self.appEntry.name
-                                                idNumber:self.appEntry.idNumber
-                                                  artist:self.appEntry.artist
-                                                 summary:self.appEntry.summary
-                                                   price:self.appEntry.price
-                                                sharLink:self.appEntry.shareLink
-                                         largePictureURL:self.appEntry.largePictureURL
-                                      andSmallPictureURL:self.appEntry.smallPictureURL
-                                  inManagedObjectContext:self.dataStore.managedObjectContext];
     
-    [self.dataStore.favoriteAppArray addObject:favoriteApp];
+        FavoriteApp *favoriteApp = [FavoriteApp appEntryName:self.appEntry.name
+                                                    idNumber:self.appEntry.idNumber
+                                                      artist:self.appEntry.artist
+                                                     summary:self.appEntry.summary
+                                                       price:self.appEntry.price
+                                                    sharLink:self.appEntry.shareLink
+                                             largePictureURL:self.appEntry.largePictureURL
+                                          andSmallPictureURL:self.appEntry.smallPictureURL
+                                      inManagedObjectContext:self.dataStore.managedObjectContext];
     
-    [self.dataStore saveContext];
-    NSLog(@"Favorite Apps: %@", self.dataStore.favoriteAppArray);
-    NSLog(@"Number of favorites here here: %ld", [[self.dataStore favoriteAppArray] count]);
-    
-
+        [self.dataStore.favoriteAppArray addObject:favoriteApp];
+        [self.dataStore saveContext];
+        NSLog(@"Favorite Apps: %@", self.dataStore.favoriteAppArray);
+    }
 }
-
 
 
 

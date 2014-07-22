@@ -41,12 +41,36 @@ static NSInteger const ARTIST_Y_COORDINATE = 65;
     return self;
 }
 
-
 - (void)configureCellWithAppEntry:(AppEntry *)appEntry {
     self.appNameLabel.text = appEntry.name;
     self.appArtistLabel.text = [NSString stringWithFormat:@"By %@", appEntry.artist];
 }
 
+#pragma mark - Favorite App Cell
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier favoriteApp:(FavoriteApp *)favoriteApp
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        
+        self.appNameLabel = [self buildAppNameLabel:favoriteApp.name];
+        self.thumbnailImageView = [self buildThumbnailImageView];
+        self.appArtistLabel = [self buildAppArtistLabel:favoriteApp.artist];
+        
+        [self.contentView addSubview:self.appNameLabel];
+        [self.contentView addSubview:self.thumbnailImageView];
+        [self.contentView addSubview:self.appArtistLabel];
+    }
+    return self;
+}
+
+
+- (void)configureCellWithFavoriteApp:(FavoriteApp *)favoriteApp {
+    self.appNameLabel.text = favoriteApp.name;
+    self.appArtistLabel.text = [NSString stringWithFormat:@"By %@", favoriteApp.artist];
+}
+
+
+#pragma mark - Cell Construction
 
 -(UILabel *)buildAppNameLabel: (NSString *)appName
 {

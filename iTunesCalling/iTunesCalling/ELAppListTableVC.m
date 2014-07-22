@@ -174,10 +174,11 @@ static NSInteger const CELL_HEIGHT = 85;
 
 - (void)showFavorites
 {
-    NSLog(@"Number of favorites: %ld", [self.dataStore.favoriteAppArray count]);
-
     ELFavoritesTableViewController *favoriteTableVC = [[ELFavoritesTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    [favoriteTableVC.favoritesTableView reloadData];
     [self.navigationController pushViewController:favoriteTableVC animated:YES];
+    
+    
     
 }
 

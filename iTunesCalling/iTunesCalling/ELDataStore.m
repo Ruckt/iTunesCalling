@@ -76,27 +76,63 @@
     
 }
 
-- (NSFetchedResultsController *) fetchedFavoriteResultsController
-{
-    if (!_fetchedFavoriteResultsController)
+- (NSArray *)fetchFavorites {
+    
+    NSFetchRequest *favoritesFetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"FavoriteApp"];
+    
+    NSArray *favorites = [[NSArray alloc] init];
+    
+    NSError *error;
+    
+    favorites = [self.managedObjectContext executeFetchRequest:favoritesFetchRequest error:&error];
+    if (error)
     {
-        NSFetchRequest *favoriteFetch = [[NSFetchRequest alloc] initWithEntityName:@"FavoriteApp"];
-        favoriteFetch.fetchBatchSize = 26;
-        
-        //   NSPredicate *toDoPredicate = [NSPredicate predicateWithFormat:@"list == %@" , self.listInQuestion];
-        // toDosFetch.predicate = toDoPredicate;
-        
-        NSSortDescriptor *alphabetical = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-        favoriteFetch.sortDescriptors = @[alphabetical];
-        
-        _fetchedFavoriteResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:favoriteFetch managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"fetchFavoriteResultsCache"];
-        
-        [_fetchedFavoriteResultsController performFetch:nil];
+        NSLog(@"%@",error);
     }
     
-    return _fetchedFavoriteResultsController;
+    return favorites;
 }
 
+
+//- (NSFetchedResultsController *) fetchedFavoriteResultsController
+//{
+//    if (!_fetchedFavoriteResultsController)
+//    {
+//        NSFetchRequest *favoriteFetch = [[NSFetchRequest alloc] initWithEntityName:@"FavoriteApp"];
+//        favoriteFetch.fetchBatchSize = 26;
+//        
+//        //   NSPredicate *toDoPredicate = [NSPredicate predicateWithFormat:@"list == %@" , self.listInQuestion];
+//        // toDosFetch.predicate = toDoPredicate;
+//        
+//        NSSortDescriptor *alphabetical = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+//        favoriteFetch.sortDescriptors = @[alphabetical];
+//        
+//        _fetchedFavoriteResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:favoriteFetch managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"fetchFavoriteResultsCache"];
+//        
+//        [_fetchedFavoriteResultsController performFetch:nil];
+//    }
+//    
+//    return _fetchedFavoriteResultsController;
+//}
+
+-(BOOL)previouslyFavorited:(NSNumber *)idNumber
+{
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"FavoriteApp" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    NSPredicate *idPredicate = [NSPredicate predicateWithFormat:@"(idNumber = %@)", idNumber];
+    [request setPredicate:idPredicate];
+    
+    NSError *error;
+    NSArray *results = [self.managedObjectContext executeFetchRequest:request error:&error];
+    
+    if ([results count] == 0) {
+        return NO;
+    } else {
+        return YES;
+    }
+}
 
 
 
@@ -105,34 +141,21 @@
 //    NSLog(@"My favorite apps: %@", self.favoriteAppArray);
 //}
 //    favoriteApp =[NSEntityDescription insertNewObjectForEntityForName:@"FavoriteApp" inManagedObjectContext:self.managedObjectContext];
-//    
+//
 //    NSLog(@"My favorite apps: %@", favoriteApp);
 //    NSMutableArray *tempArray = [[NSMutableArray alloc] initWithArray:self.favoriteApps];
 //    NSLog(@"My self. favorite: %@", self.favoriteApps);
 //    [tempArray addObject:favoriteApp];
-//    
+//
 //    NSLog(@"My favorite apps: %@", tempArray);
-//    
+//
 //    _favoriteApps = [[NSArray alloc] initWithArray:tempArray];
-//    
+//
 //    [self saveContext];
-//    
+//
 
 
 //
-//- (void)fetchFavorites {
-//    
-//    NSFetchRequest *favoritesFetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"FavoriteApp"];
-//    
-//    NSError *error;
-//    
-//    self.favoriteAppArray = [self.managedObjectContext executeFetchRequest:favoritesFetchRequest error:&error];
-//    if (error)
-//    {
-//        NSLog(@"%@",error);
-//    }
-//    
-//}
 
 
 

@@ -8,11 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "AppEntry.h"
+#import "FavoriteApp+Methods.h"
 
 @interface ELAppCell : UITableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier appEntry:(AppEntry *)appEntry;
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier favoriteApp:(FavoriteApp *)favoriteApp;
+
 - (void)configureCellWithAppEntry:(AppEntry *)appEntry;
+- (void)configureCellWithFavoriteApp:(FavoriteApp *)favoriteApp;
+
 @property(nonatomic, strong) UIImageView *thumbnailImageView;
 
 @end
