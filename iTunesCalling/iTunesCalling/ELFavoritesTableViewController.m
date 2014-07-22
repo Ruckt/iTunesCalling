@@ -40,6 +40,9 @@ static NSInteger const CELL_HEIGHT = 85;
         [self.view addSubview:self.favoritesTableView];
         
         
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveEvent:) name:@"UnFavored" object:nil];
+
+        
     }
     return self;
 }
@@ -49,21 +52,17 @@ static NSInteger const CELL_HEIGHT = 85;
 {
     [super viewDidLoad];
     self.favoriteApps = [self.dataStore fetchFavorites];
-    
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-
+- (void)receiveEvent:(NSNotification *)notification {
+    NSLog(@"Received unFavor notification");
+    self.favoriteApps = [self.dataStore fetchFavorites];
+    [self.favoritesTableView reloadData];
+}
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -77,22 +76,18 @@ static NSInteger const CELL_HEIGHT = 85;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.favoriteApps count];
-    
-    //[self.dataStore.fetchedFavoriteResultsController.sections[section] numberOfObjects];
 }
 
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     return CELL_HEIGHT;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     ELAppCell *favoriteCell = (ELAppCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     FavoriteApp *favoriteApp = [self.favoriteApps objectAtIndex:indexPath.row];
-   // [self.dataStore.fetchedFavoriteResultsController objectAtIndexPath:indexPath];
     
     if (!favoriteCell) {
         favoriteCell = [[ELAppCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier favoriteApp:favoriteApp];
@@ -102,6 +97,19 @@ static NSInteger const CELL_HEIGHT = 85;
     
     return favoriteCell;
 }
+
+
+ #pragma mark - Navigation
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    FavoriteApp *selectedFavorite = [self.favoriteApps objectAtIndex:indexPath.row];
+    
+    ELSingleAppViewController *singleAppViewController = [[ELSingleAppViewController alloc] initWithFavoriteApp:selectedFavorite];
+    [self.navigationController pushViewController:singleAppViewController animated:YES];
+}
+
 
 
 
@@ -149,16 +157,7 @@ static NSInteger const CELL_HEIGHT = 85;
 }
 */
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 //#pragma mark - NSFetchedResultsControllerDelegate Methods
 //

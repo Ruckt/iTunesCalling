@@ -8,7 +8,6 @@
 
 #import "ELSingleAppViewController.h"
 #import "ELDataStore.h"
-#import "FavoriteApp+Methods.h"
 
 static NSInteger const SPACE_BETWEEN = 15;
 static NSInteger const X_COORDINATE = 10;
@@ -20,15 +19,26 @@ static NSInteger const SECOND_COL_WIDTH = 170;
 @interface ELSingleAppViewController ()
 
 @property(nonatomic, strong) AppEntry *appEntry;
+@property(nonatomic, strong) FavoriteApp *favoriteApp;
 @property(nonatomic, strong) ELDataStore *dataStore;
+
+@property(nonatomic, strong) NSString *artist;
+@property(nonatomic, strong) NSString *name;
+@property(nonatomic, strong) NSString *summary;
+@property(nonatomic, strong) NSString *price;
+@property(nonatomic, strong) NSString *imageURL;
+@property(nonatomic, strong) NSString *shareURL;
+@property(nonatomic, strong) NSNumber *idNumber;
 
 @property(nonatomic, strong) UILabel *appArtistLabel;
 @property(nonatomic, strong) UILabel *appNameLabel;
 @property(nonatomic, strong) UILabel *appSummaryLabel;
 @property(nonatomic, strong) UILabel *appPriceLabel;
-@property(nonatomic, strong) UIButton *addToFavoritesButton;
+@property(nonatomic, strong) UIButton *addFavoritesButton;
 @property(nonatomic, strong) UIImageView *appImageView;
 @property(nonatomic, strong) UIBarButtonItem *shareButton;
+
+@property BOOL aFavorite;
 
 @end
 
@@ -42,6 +52,32 @@ static NSInteger const SECOND_COL_WIDTH = 170;
     if (self) {
         self.appEntry = appEntry;
         self.dataStore = [ELDataStore sharedELDataStore];
+        self.artist = appEntry.artist;
+        self.name = appEntry.name;
+        self.summary = appEntry.summary;
+        self.price = appEntry.price;
+        self.imageURL = appEntry.largePictureURL;
+        self.shareURL = appEntry.shareLink;
+        self.idNumber = appEntry.idNumber;
+        self.aFavorite = [self.dataStore previouslyFavorited:self.idNumber];
+    }
+    return self;
+}
+
+- (ELSingleAppViewController *)initWithFavoriteApp:(FavoriteApp *)favoriteApp
+{
+    self = [super init];
+    if (self) {
+        self.favoriteApp = favoriteApp;
+        self.dataStore = [ELDataStore sharedELDataStore];
+        self.artist = favoriteApp.artist;
+        self.name = favoriteApp.name;
+        self.summary = favoriteApp.summary;
+        self.price = favoriteApp.price;
+        self.imageURL = favoriteApp.largePictureURL;
+        self.shareURL = favoriteApp.shareLink;
+        self.idNumber = favoriteApp.idNumber;
+        self.aFavorite = YES;
     }
     return self;
 }
@@ -61,17 +97,17 @@ static NSInteger const SECOND_COL_WIDTH = 170;
     self.appEntryView = [[UIScrollView alloc] initWithFrame:[self.view frame]];
     [self.appEntryView setScrollEnabled:YES];
     
-    self.appNameLabel = [self buildAppNameLabel:self.appEntry.name atYCoordinate:SPACE_BETWEEN];
+    self.appNameLabel = [self buildAppNameLabel:self.name atYCoordinate:SPACE_BETWEEN];
     
     CGFloat yImageCoordinate = 2*SPACE_BETWEEN + self.appNameLabel.frame.size.height;
-    self.appImageView = [self buildImageView:self.appEntry.largePictureURL atYCoordinate:yImageCoordinate];
+    self.appImageView = [self buildImageView:self.imageURL atYCoordinate:yImageCoordinate];
     
     CGFloat yButtonCoordinate = 3*SPACE_BETWEEN +self.appNameLabel.frame.size.height + self.appImageView.frame.size.height;
-    self.addToFavoritesButton = [self buildAddToFavoritesButtonAtYCoordinate:yButtonCoordinate];
+    self.addFavoritesButton = [self buildFavoritesButtonAtYCoordinate:yButtonCoordinate];
 
     //Summary Label
-    CGFloat ySummaryCoordinate = 4*SPACE_BETWEEN + self.appNameLabel.frame.size.height + self.appImageView.frame.size.height + self.addToFavoritesButton.frame.size.height;
-    self.appSummaryLabel = [self buildSummaryLabel:self.appEntry.summary atYCoordinate:ySummaryCoordinate];
+    CGFloat ySummaryCoordinate = 4*SPACE_BETWEEN + self.appNameLabel.frame.size.height + self.appImageView.frame.size.height + self.addFavoritesButton.frame.size.height;
+    self.appSummaryLabel = [self buildSummaryLabel:self.summary atYCoordinate:ySummaryCoordinate];
     
     //Calculating height size of view
     CGFloat viewHeight = 4*SPACE_BETWEEN + self.appNameLabel.frame.size.height + self.appImageView.frame.size.height + self.appSummaryLabel.frame.size.height;
@@ -79,16 +115,16 @@ static NSInteger const SECOND_COL_WIDTH = 170;
 
     //App artist
     CGFloat yArtistCoordinate = 2*SPACE_BETWEEN +5 + self.appNameLabel.frame.size.height;
-    self.appArtistLabel = [self buildAppArtistLabel:self.appEntry.artist atYCoordinate:yArtistCoordinate];
+    self.appArtistLabel = [self buildAppArtistLabel:self.artist atYCoordinate:yArtistCoordinate];
     
     //App price
     CGFloat yPriceCoordinate = 3*SPACE_BETWEEN + self.appNameLabel.frame.size.height + self.appArtistLabel.frame.size.height;
-    self.appPriceLabel = [self buildAppPriceLabel:self.appEntry.price atYCoordinate:yPriceCoordinate];
+    self.appPriceLabel = [self buildAppPriceLabel:self.price atYCoordinate:yPriceCoordinate];
     
     
     [self.appEntryView addSubview:self.appNameLabel];
     [self.appEntryView addSubview:self.appImageView];
-    [self.appEntryView addSubview:self.addToFavoritesButton];
+    [self.appEntryView addSubview:self.addFavoritesButton];
     [self.appEntryView addSubview:self.appSummaryLabel];
     [self.appEntryView addSubview:self.appArtistLabel];
     [self.appEntryView addSubview:self.appPriceLabel];
@@ -132,16 +168,22 @@ static NSInteger const SECOND_COL_WIDTH = 170;
     return imageView;
 }
 
--(UIButton *)buildAddToFavoritesButtonAtYCoordinate: (CGFloat)yCoordinate
+-(UIButton *)buildFavoritesButtonAtYCoordinate: (CGFloat)yCoordinate
 {
-    UIButton *favoriteThisButton = [[UIButton alloc] initWithFrame:CGRectMake(X_COORDINATE, yCoordinate, 150, 30)];
-    [favoriteThisButton setTitle:@"Favor This App!" forState:UIControlStateNormal];
-    [favoriteThisButton.titleLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:15]];
-    favoriteThisButton.backgroundColor = [UIColor colorWithRed:0.5 green:0 blue:0 alpha:1 ];
+    UIButton *favoriteButton = [[UIButton alloc] initWithFrame:CGRectMake(X_COORDINATE, yCoordinate, 150, 30)];
+    [favoriteButton.titleLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:15]];
+
+    if (self.aFavorite) {
+        [favoriteButton setTitle:@"Unfavor App" forState:UIControlStateNormal];
+        favoriteButton.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0.5 alpha:1];;
+    } else {
+        [favoriteButton setTitle:@"Favor This App!" forState:UIControlStateNormal];
+        favoriteButton.backgroundColor = [UIColor colorWithRed:0.5 green:0 blue:0 alpha:1 ];
+    }
     
-    [favoriteThisButton addTarget:self action:@selector(favorThis) forControlEvents:UIControlEventTouchUpInside];
+    [favoriteButton addTarget:self action:@selector(favorThis) forControlEvents:UIControlEventTouchUpInside];
     
-    return favoriteThisButton;
+    return favoriteButton;
 }
 
 
@@ -186,21 +228,18 @@ static NSInteger const SECOND_COL_WIDTH = 170;
 
 -(void)favorThis
 {
-    if ([self.dataStore previouslyFavorited:self.appEntry.idNumber]) {
+    if ([self.dataStore previouslyFavorited:self.idNumber]) {
+    
+        [self.dataStore unFavorApp:self.idNumber];
+        [self.dataStore saveContext];
         
-        NSLog(@"Your love for this app is already known!");
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Your love for this app is already known!"
-                                                          message:nil
-                                                         delegate:nil
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
-        [message show];
+        [self.addFavoritesButton setTitle:@"Favor This App!" forState:UIControlStateNormal];
+        self.addFavoritesButton.backgroundColor = [UIColor colorWithRed:0.5 green:0 blue:0 alpha:1 ];
+        
+        [self postNotification];
     }
     else
     {
-        NSLog(@"New favorite App");
-    
-    
         FavoriteApp *favoriteApp = [FavoriteApp appEntryName:self.appEntry.name
                                                     idNumber:self.appEntry.idNumber
                                                       artist:self.appEntry.artist
@@ -214,9 +253,18 @@ static NSInteger const SECOND_COL_WIDTH = 170;
         [self.dataStore.favoriteAppArray addObject:favoriteApp];
         [self.dataStore saveContext];
         NSLog(@"Favorite Apps: %@", self.dataStore.favoriteAppArray);
+        [self.addFavoritesButton setTitle:@"Unfavor App" forState:UIControlStateNormal];
+        self.addFavoritesButton.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0.5 alpha:1];
+
     }
+
 }
 
+
+- (void)postNotification //post notification method and logic
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"UnFavored" object:nil];
+}
 
 
 
@@ -234,7 +282,7 @@ static NSInteger const SECOND_COL_WIDTH = 170;
 - (void)shareLinkFunctionality
 {
     NSString *textWithLink = @"Check out this cool new app!!";
-    NSURL *appLink = [NSURL URLWithString:self.appEntry.shareLink];
+    NSURL *appLink = [NSURL URLWithString:self.shareURL];
     
     NSArray *activityItems = [NSArray arrayWithObjects:textWithLink, appLink,nil];
     

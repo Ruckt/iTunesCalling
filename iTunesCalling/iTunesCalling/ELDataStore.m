@@ -115,7 +115,7 @@
 //    return _fetchedFavoriteResultsController;
 //}
 
--(BOOL)previouslyFavorited:(NSNumber *)idNumber
+- (BOOL)previouslyFavorited:(NSNumber *)idNumber
 {
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"FavoriteApp" inManagedObjectContext:self.managedObjectContext];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -131,6 +131,25 @@
         return NO;
     } else {
         return YES;
+    }
+}
+
+- (void)unFavorApp:(NSNumber *)idNumber
+{
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"FavoriteApp" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    NSPredicate *idPredicate = [NSPredicate predicateWithFormat:@"(idNumber = %@)", idNumber];
+    [request setPredicate:idPredicate];
+    
+    NSError *error;
+    NSArray *results = [self.managedObjectContext executeFetchRequest:request error:&error];
+    
+    if ([results count] != 0) {
+        for (NSManagedObject *savedApp in results) {
+            [self.managedObjectContext deleteObject:savedApp];
+        }
     }
 }
 

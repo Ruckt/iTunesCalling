@@ -28,5 +28,6 @@
 
 - (NSArray *)fetchFavorites;
 -(BOOL)previouslyFavorited:(NSNumber *)idNumber;
+- (void)unFavorApp:(NSNumber *)idNumber;
 
 @end

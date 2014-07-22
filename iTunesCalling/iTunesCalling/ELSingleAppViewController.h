@@ -9,10 +9,12 @@
 
 #import <UIKit/UIKit.h>
 #import "AppEntry.h"
+#import "FavoriteApp+Methods.h"
 
 @interface ELSingleAppViewController : UIViewController
 
 - (ELSingleAppViewController *)initWithAppEntry:(AppEntry *)appEntry;
+- (ELSingleAppViewController *)initWithFavoriteApp:(FavoriteApp *)favoriteApp;
 
 @property(nonatomic, strong) UIScrollView *appEntryView;
 
