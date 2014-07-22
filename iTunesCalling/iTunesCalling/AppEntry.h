@@ -7,18 +7,29 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 
 
-@interface AppEntry : NSManagedObject
+@interface AppEntry : NSObject
 
-@property (nonatomic, retain) NSString * artist;
-@property (nonatomic, retain) NSNumber * idNumber;
-@property (nonatomic, retain) NSString * largePictureURL;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * price;
-@property (nonatomic, retain) NSString * shareLink;
-@property (nonatomic, retain) NSString * smallPictureURL;
-@property (nonatomic, retain) NSString * summary;
+@property (strong, nonatomic) NSString * artist;
+@property (strong, nonatomic) NSNumber * idNumber;
+@property (strong, nonatomic) NSString * largePictureURL;
+@property (strong, nonatomic) NSString * name;
+@property (strong, nonatomic) NSString * price;
+@property (strong, nonatomic) NSString * shareLink;
+@property (strong, nonatomic) NSString * smallPictureURL;
+@property (strong, nonatomic) NSString * summary;
+
+
+- (id)initWithName:(NSString *)name
+            idNumber:(NSNumber *)number
+              artist:(NSString *)artist
+             summary:(NSString *)summary
+               price:(NSString *)price
+            sharLink:(NSString *)shareLink
+     largePictureURL:(NSString *)largePictureURL
+  andSmallPictureURL:(NSString *)smallPictureURL;
 
 @end
+
+

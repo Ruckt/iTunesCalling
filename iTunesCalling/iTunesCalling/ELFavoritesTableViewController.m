@@ -37,7 +37,8 @@ static NSInteger const CELL_HEIGHT = 85;
         self.favoritesTableView.delegate = self;
         self.favoritesTableView.dataSource = self;
         
-        //self.favoriteApps = [self.dataStore favoriteAppArray];
+       // NSLog(@"Favorite Apps: %@", self.dataStore.favoriteAppArray);
+        //self.favoriteApps = self.dataStore.favoriteAppArray;
         
         [self.view addSubview:self.favoritesTableView];
     }
@@ -71,7 +72,7 @@ static NSInteger const CELL_HEIGHT = 85;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.favoriteApps count];
+    return 20;//[self.favoriteApps count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -84,21 +85,15 @@ static NSInteger const CELL_HEIGHT = 85;
 
     UITableViewCell *myCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     //FavoriteApp *favoriteApp = [self.favoriteApps objectAtIndex:indexPath.row];
-    //myCell.textLabel.text = favoriteApp.name;
+    myCell.textLabel.text =  @"Favorite App";//favoriteApp.name;
     
     return myCell;
 
-}
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
     
-    return cell;
+    
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

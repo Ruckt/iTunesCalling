@@ -8,7 +8,7 @@
 
 
 #import <UIKit/UIKit.h>
-#import "AppEntry+Methods.h"
+#import "AppEntry.h"
 
 @interface ELSingleAppViewController : UIViewController
 

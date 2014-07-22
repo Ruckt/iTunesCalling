@@ -26,14 +26,13 @@
 		E2219129195C5E34001004F4 /* iTunesCallingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2219128195C5E34001004F4 /* iTunesCallingTests.m */; };
 		E22D5E40197571BC00D8B490 /* ELMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E22D5E3F197571BC00D8B490 /* ELMain.storyboard */; };
 		E27A8453197C225900BECEC9 /* AppEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = E27A8452197C225900BECEC9 /* AppEntry.m */; };
-		E27A8456197C225A00BECEC9 /* FavoriteApp.m in Sources */ = {isa = PBXBuildFile; fileRef = E27A8455197C225A00BECEC9 /* FavoriteApp.m */; };
 		E27A8459197C22C000BECEC9 /* FavoriteApp+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = E27A8458197C22C000BECEC9 /* FavoriteApp+Methods.m */; };
 		E27A845C197C606B00BECEC9 /* ELFavoritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27A845B197C606B00BECEC9 /* ELFavoritesTableViewController.m */; };
+		E27A845F197CCC6000BECEC9 /* FavoriteApp.m in Sources */ = {isa = PBXBuildFile; fileRef = E27A845E197CCC6000BECEC9 /* FavoriteApp.m */; };
 		E28B9477195CF9DC0076E845 /* ELDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E28B9476195CF9DC0076E845 /* ELDataStore.m */; };
 		E28BCC3019709945008970A3 /* ELSingleAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BCC2F19709945008970A3 /* ELSingleAppViewController.m */; };
 		E2B9F7DD1969013E00411C1A /* ELiTunesDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B9F7DC1969013E00411C1A /* ELiTunesDataProvider.m */; };
 		E2B9F7E4196906EE00411C1A /* ELAppListTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B9F7E3196906EE00411C1A /* ELAppListTableVC.m */; };
-		E2B9F7F01969B9FD00411C1A /* AppEntry+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B9F7EF1969B9FD00411C1A /* AppEntry+Methods.m */; };
 		E2B9F7F3196B2DCD00411C1A /* ELAppCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B9F7F2196B2DCD00411C1A /* ELAppCell.m */; };
 /* End PBXBuildFile section */
 
@@ -72,12 +71,12 @@
 		E22D5E3F197571BC00D8B490 /* ELMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ELMain.storyboard; sourceTree = "<group>"; };
 		E27A8451197C225900BECEC9 /* AppEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppEntry.h; sourceTree = "<group>"; };
 		E27A8452197C225900BECEC9 /* AppEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppEntry.m; sourceTree = "<group>"; };
-		E27A8454197C225A00BECEC9 /* FavoriteApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteApp.h; sourceTree = "<group>"; };
-		E27A8455197C225A00BECEC9 /* FavoriteApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteApp.m; sourceTree = "<group>"; };
 		E27A8457197C22C000BECEC9 /* FavoriteApp+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FavoriteApp+Methods.h"; sourceTree = "<group>"; };
 		E27A8458197C22C000BECEC9 /* FavoriteApp+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FavoriteApp+Methods.m"; sourceTree = "<group>"; };
 		E27A845A197C606B00BECEC9 /* ELFavoritesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELFavoritesTableViewController.h; sourceTree = "<group>"; };
 		E27A845B197C606B00BECEC9 /* ELFavoritesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELFavoritesTableViewController.m; sourceTree = "<group>"; };
+		E27A845D197CCC6000BECEC9 /* FavoriteApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteApp.h; sourceTree = "<group>"; };
+		E27A845E197CCC6000BECEC9 /* FavoriteApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteApp.m; sourceTree = "<group>"; };
 		E28B9475195CF9DC0076E845 /* ELDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDataStore.h; sourceTree = "<group>"; };
 		E28B9476195CF9DC0076E845 /* ELDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDataStore.m; sourceTree = "<group>"; };
 		E28BCC2E19709945008970A3 /* ELSingleAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSingleAppViewController.h; sourceTree = "<group>"; };
@@ -86,8 +85,6 @@
 		E2B9F7DC1969013E00411C1A /* ELiTunesDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELiTunesDataProvider.m; sourceTree = "<group>"; };
 		E2B9F7E2196906EE00411C1A /* ELAppListTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAppListTableVC.h; sourceTree = "<group>"; };
 		E2B9F7E3196906EE00411C1A /* ELAppListTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAppListTableVC.m; sourceTree = "<group>"; };
-		E2B9F7EE1969B9FD00411C1A /* AppEntry+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppEntry+Methods.h"; sourceTree = "<group>"; };
-		E2B9F7EF1969B9FD00411C1A /* AppEntry+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppEntry+Methods.m"; sourceTree = "<group>"; };
 		E2B9F7F1196B2DCD00411C1A /* ELAppCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAppCell.h; sourceTree = "<group>"; };
 		E2B9F7F2196B2DCD00411C1A /* ELAppCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAppCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,9 +158,9 @@
 				E2B9F7DC1969013E00411C1A /* ELiTunesDataProvider.m */,
 				E2219114195C5E34001004F4 /* Images.xcassets */,
 				E2181721196C7C0800285E0C /* holdingpattern.png */,
-				E2B9F7F4196B2EAC00411C1A /* UI */,
+				E2B9F7F4196B2EAC00411C1A /* View */,
 				E2B9F7E1196904C300411C1A /* View Controllers */,
-				E2B9F7DA1968DE3400411C1A /* Core Data */,
+				E2B9F7DA1968DE3400411C1A /* Model */,
 				E2219106195C5E34001004F4 /* Supporting Files */,
 			);
 			path = iTunesCalling;
@@ -198,22 +195,20 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		E2B9F7DA1968DE3400411C1A /* Core Data */ = {
+		E2B9F7DA1968DE3400411C1A /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				E27A8451197C225900BECEC9 /* AppEntry.h */,
 				E27A8452197C225900BECEC9 /* AppEntry.m */,
-				E27A8454197C225A00BECEC9 /* FavoriteApp.h */,
-				E27A8455197C225A00BECEC9 /* FavoriteApp.m */,
 				E2219111195C5E34001004F4 /* iTunesCalling.xcdatamodeld */,
-				E2B9F7EE1969B9FD00411C1A /* AppEntry+Methods.h */,
-				E2B9F7EF1969B9FD00411C1A /* AppEntry+Methods.m */,
+				E27A845D197CCC6000BECEC9 /* FavoriteApp.h */,
+				E27A845E197CCC6000BECEC9 /* FavoriteApp.m */,
 				E27A8457197C22C000BECEC9 /* FavoriteApp+Methods.h */,
 				E27A8458197C22C000BECEC9 /* FavoriteApp+Methods.m */,
 				E28B9475195CF9DC0076E845 /* ELDataStore.h */,
 				E28B9476195CF9DC0076E845 /* ELDataStore.m */,
 			);
-			name = "Core Data";
+			name = Model;
 			sourceTree = "<group>";
 		};
 		E2B9F7E1196904C300411C1A /* View Controllers */ = {
@@ -229,14 +224,14 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
-		E2B9F7F4196B2EAC00411C1A /* UI */ = {
+		E2B9F7F4196B2EAC00411C1A /* View */ = {
 			isa = PBXGroup;
 			children = (
 				E22D5E3F197571BC00D8B490 /* ELMain.storyboard */,
 				E2B9F7F1196B2DCD00411C1A /* ELAppCell.h */,
 				E2B9F7F2196B2DCD00411C1A /* ELAppCell.m */,
 			);
-			name = UI;
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,16 +369,15 @@
 			files = (
 				E27A8459197C22C000BECEC9 /* FavoriteApp+Methods.m in Sources */,
 				E28B9477195CF9DC0076E845 /* ELDataStore.m in Sources */,
+				E27A845F197CCC6000BECEC9 /* FavoriteApp.m in Sources */,
 				E221910C195C5E34001004F4 /* main.m in Sources */,
 				E27A8453197C225900BECEC9 /* AppEntry.m in Sources */,
-				E27A8456197C225A00BECEC9 /* FavoriteApp.m in Sources */,
 				E2B9F7F3196B2DCD00411C1A /* ELAppCell.m in Sources */,
 				E2B9F7E4196906EE00411C1A /* ELAppListTableVC.m in Sources */,
 				E27A845C197C606B00BECEC9 /* ELFavoritesTableViewController.m in Sources */,
 				E2219110195C5E34001004F4 /* ELAppDelegate.m in Sources */,
 				E2219113195C5E34001004F4 /* iTunesCalling.xcdatamodeld in Sources */,
 				E2B9F7DD1969013E00411C1A /* ELiTunesDataProvider.m in Sources */,
-				E2B9F7F01969B9FD00411C1A /* AppEntry+Methods.m in Sources */,
 				E28BCC3019709945008970A3 /* ELSingleAppViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,7 @@
 //
 
 #import "ELiTunesDataProvider.h"
-#import "AppEntry+Methods.h"
+#import "AppEntry.h"
 #import "ELDataStore.h"
 #import <AFNetworking.h>
 
@@ -15,7 +15,7 @@ NSString* const ITunesURL = @"http://ax.itunes.apple.com/WebObjects/MZStoreServi
 
 @interface ELiTunesDataProvider ()
 
-@property (strong, nonatomic) NSMutableArray *applicationListArray;
+//@property (strong, nonatomic) NSMutableArray *applicationListArray;
 @property (nonatomic, strong) ELDataStore *dataStore;
 @end
 
@@ -24,8 +24,7 @@ NSString* const ITunesURL = @"http://ax.itunes.apple.com/WebObjects/MZStoreServi
 
 - (id)init {
     self.dataStore = [ELDataStore sharedELDataStore];
-    
-    
+//    self.applicationListArray = [[NSMutableArray alloc] init];
     return self;
 }
 
@@ -107,21 +106,25 @@ NSString* const ITunesURL = @"http://ax.itunes.apple.com/WebObjects/MZStoreServi
             }
         }
         //NSLog(@"Url: %@", iTunesAppURL);
-
-        AppEntry *appEntry = [AppEntry appEntryName:appName
-                                           idNumber:idNumber
-                                             artist:appArtist
-                                            summary:appSummary
-                                              price:appPrice
-                                           sharLink:iTunesAppURL
-                                    largePictureURL:largePictureURL
-                                 andSmallPictureURL:smallPictueURL
-                             inManagedObjectContext:self.dataStore.managedObjectContext];
         
-        [self.dataStore addAppEntry:appEntry];
+        AppEntry *appEntry = [[AppEntry alloc] initWithName:appName
+                                                   idNumber:idNumber
+                                                     artist:appArtist
+                                                    summary:appSummary
+                                                      price:appPrice
+                                                   sharLink:iTunesAppURL
+                                            largePictureURL:largePictureURL
+                                         andSmallPictureURL:smallPictueURL];
+
+        [self.dataStore.appEntryArray addObject:appEntry];
+        
+ //       [self.applicationListArray addObject:appEntry];
+        
+        
+       
+        
     }
-    
-    //NSLog(@"entries: %ld", (long)[self.dataStore numberOfAppEntries]);
+    NSLog(@"entries: %ld", (long)[self.dataStore.appEntryArray count]);
     
 }
 

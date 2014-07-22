@@ -20,9 +20,6 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 
-
-
-
 # pragma mark - Singleton
 
 
@@ -48,22 +45,23 @@
     
 }
 
-- (void)addAppEntry:(AppEntry *)appEntry {
-    [self.appEntryArray addObject:appEntry];
-}
-
-
-- (NSInteger)numberOfAppEntries {
-    
-    return [self.appEntryArray count];
-}
-
-
-- (AppEntry *)getAppEntryAtIndex:(NSInteger)index {
-    AppEntry *appEntry = [self.appEntryArray objectAtIndex:index];
-    NSLog(@"Getting app Entry: %@",appEntry.name);
-    return [self.appEntryArray objectAtIndex:index];
-}
+//- (void)addAppEntry:(AppEntry *)appEntry {
+//    NSLog(@"app entryryryry: %@", appEntry);
+//    [self.appEntryArray addObject:appEntry];
+//}
+//
+//
+//- (NSInteger)numberOfAppEntries {
+//    
+//    return [self.appEntryArray count];
+//}
+//
+//
+//- (AppEntry *)getAppEntryAtIndex:(NSInteger)index {
+//    AppEntry *appEntry = [self.appEntryArray objectAtIndex:index];
+//    NSLog(@"Getting app Entry: %@",appEntry.name);
+//    return [self.appEntryArray objectAtIndex:index];
+//}
 
 
 #pragma mark - Favorite App Methods
@@ -78,10 +76,10 @@
     
 }
 
-- (void)addFavoriteApps:(FavoriteApp *)favoriteApp{
-    [self.favoriteAppArray addObject:favoriteApp];
-    NSLog(@"My favorite apps: %@", self.favoriteAppArray);
-}
+//- (void)addFavoriteApps:(FavoriteApp *)favoriteApp{
+//    [self.favoriteAppArray addObject:favoriteApp];
+//    NSLog(@"My favorite apps: %@", self.favoriteAppArray);
+//}
 //    favoriteApp =[NSEntityDescription insertNewObjectForEntityForName:@"FavoriteApp" inManagedObjectContext:self.managedObjectContext];
 //    
 //    NSLog(@"My favorite apps: %@", favoriteApp);

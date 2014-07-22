@@ -11,13 +11,30 @@
 
 @implementation AppEntry
 
-@dynamic artist;
-@dynamic idNumber;
-@dynamic largePictureURL;
-@dynamic name;
-@dynamic price;
-@dynamic shareLink;
-@dynamic smallPictureURL;
-@dynamic summary;
+
+- (id)initWithName:(NSString *)name
+            idNumber:(NSNumber *)number
+              artist:(NSString *)artist
+             summary:(NSString *)summary
+               price:(NSString *)price
+            sharLink:(NSString *)shareLink
+     largePictureURL:(NSString *)largePictureURL
+  andSmallPictureURL:(NSString *)smallPictureURL {
+    
+    self = [super init];
+    if (self) {
+        _name = name;
+        _idNumber = number;
+        _artist = artist;
+        _summary = summary;
+        _price = price;
+        _shareLink = shareLink;
+        _largePictureURL = largePictureURL;
+        _smallPictureURL = smallPictureURL;
+    }
+    return self;
+}
+
+
 
 @end

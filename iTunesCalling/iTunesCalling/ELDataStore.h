@@ -8,9 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "AppEntry+Methods.h"
+#import "AppEntry.h"
 
-@class AppEntry;
 @class FavoriteApp;
 
 @interface ELDataStore : NSObject
@@ -26,11 +25,11 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
-- (void)addAppEntry:(AppEntry *)appEntry;
-- (NSInteger)numberOfAppEntries;
-- (AppEntry *)getAppEntryAtIndex:(NSInteger)index;
+//- (void)addAppEntry:(AppEntry *)appEntry;
+//- (NSInteger)numberOfAppEntries;
+//- (AppEntry *)getAppEntryAtIndex:(NSInteger)index;
 
-- (void)addFavoriteApps:(FavoriteApp *)appEntry;
-- (void)fetchFavorites;
+//- (void)addFavoriteApps:(FavoriteApp *)appEntry;
+//- (void)fetchFavorites;
 
 @end

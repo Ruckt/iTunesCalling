@@ -9,7 +9,7 @@
 #import "ELAppListTableVC.h"
 #import "ELDataStore.h"
 #import "ELSingleAppViewController.h"
-#import "AppEntry+Methods.h"
+#import "AppEntry.h"
 #import "ELFavoritesTableViewController.h"
 
 static NSString *CellIdentifier = @"appCell";
@@ -59,10 +59,7 @@ static NSInteger const CELL_HEIGHT = 85;
 -(BOOL)shouldAutorotate {
     return NO;
 }
-//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-//{
-//    return NO;
-//}
+
 
 #pragma mark - NSNotification Center
 
@@ -150,15 +147,14 @@ static NSInteger const CELL_HEIGHT = 85;
 
 - (void)createAppEntryPlaceHolder
 {
-    self.appEntryPlaceHolder = [AppEntry appEntryName:@"Letter Sort Ultimate Winning Challenge"
-                                             idNumber:@44
-                                               artist:@"Curly Day"
-                                              summary:@"Letter Sort is an anagram maker. It generates every possible word when you input a set of letters. It can be used to help you think of what words your name can create or aid you in any word game."
-                                                price:@"$1,000,000"
-                                             sharLink:@"https://itunes.apple.com/us/app/letter-sort/id875653244?mt=8"
-                                      largePictureURL:@"http://a4.mzstatic.com/us/r30/Purple4/v4/e4/35/4e/e4354ef0-4208-8cb0-ea7b-a69e76c2d4c7/mzl.xrwodswy.100x100-75.jpg"
-                                   andSmallPictureURL:@"http://a4.mzstatic.com/us/r30/Purple4/v4/e4/35/4e/e4354ef0-4208-8cb0-ea7b-a69e76c2d4c7/mzl.xrwodswy.53x53-50.jpg"
-                               inManagedObjectContext:self.dataStore.managedObjectContext];
+    self.appEntryPlaceHolder = [[AppEntry alloc] initWithName:@"Letter Sort Anagram Generator"
+                                                     idNumber:@44
+                                                       artist:@"Curly Day"
+                                                      summary:@"Letter Sort is an anagram maker. It generates every possible word when you input a set of letters. It can be used to help you think of what words your name can create or aid you in any word game."
+                                                        price:@"$1,000,000"
+                                                     sharLink:@"https://itunes.apple.com/us/app/letter-sort/id875653244?mt=8"
+                                              largePictureURL:@"http://a4.mzstatic.com/us/r30/Purple4/v4/e4/35/4e/e4354ef0-4208-8cb0-ea7b-a69e76c2d4c7/mzl.xrwodswy.100x100-75.jpg"
+                                           andSmallPictureURL:@"http://a4.mzstatic.com/us/r30/Purple4/v4/e4/35/4e/e4354ef0-4208-8cb0-ea7b-a69e76c2d4c7/mzl.xrwodswy.53x53-50.jpg"];
 }
 
 
@@ -178,8 +174,8 @@ static NSInteger const CELL_HEIGHT = 85;
 - (void)showFavorites
 {
     //[self.dataStore fetchFavorites];
-     NSLog(@"Display these favorites: %@", [self.dataStore favoriteAppArray]);
-    NSLog(@"Number of favorites: %ld", [[self.dataStore favoriteAppArray] count]);
+    //NSLog(@"Display these favorites: %@", [self.dataStore favoriteAppArray]);
+    //NSLog(@"Number of favorites: %ld", [[self.dataStore favoriteAppArray] count]);
 
 
     ELFavoritesTableViewController *favoriteTableVC = [[ELFavoritesTableViewController alloc] initWithStyle:UITableViewStylePlain];

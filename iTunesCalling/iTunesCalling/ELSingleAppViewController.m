@@ -197,11 +197,12 @@ static NSInteger const SECOND_COL_WIDTH = 170;
                                       andSmallPictureURL:self.appEntry.smallPictureURL
                                   inManagedObjectContext:self.dataStore.managedObjectContext];
     
-    [self.dataStore addFavoriteApps:favoriteApp];
+    [self.dataStore.favoriteAppArray addObject:favoriteApp];
     
     [self.dataStore saveContext];
-    //NSLog(@"My favorite app: %@", self.dataStore.favoriteApps);
+     NSLog(@"Favorite Apps: %@", self.dataStore.favoriteAppArray);
     NSLog(@"Number of favorites here here: %ld", [[self.dataStore favoriteAppArray] count]);
+    
 
 }
 

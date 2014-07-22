@@ -10,7 +10,6 @@
 #import "ELAppListTableVC.h"
 #import "ELiTunesDataProvider.h"
 #import "ELDataStore.h"
-#import "AppEntry+Methods.h"
 
 @interface ELAppDelegate ()
 
