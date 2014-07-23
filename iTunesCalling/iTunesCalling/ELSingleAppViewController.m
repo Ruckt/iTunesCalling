@@ -78,6 +78,16 @@ static NSInteger const SECOND_COL_WIDTH = 170;
         self.shareURL = favoriteApp.shareLink;
         self.idNumber = favoriteApp.idNumber;
         self.aFavorite = YES;
+        
+        self.appEntry = [[AppEntry alloc] initWithName:self.name
+                                              idNumber:self.idNumber
+                                                artist:self.artist
+                                               summary:self.summary
+                                                 price:self.price
+                                              sharLink:self.shareURL
+                                       largePictureURL:self.imageURL
+                                    andSmallPictureURL:favoriteApp.smallPictureURL];
+        
     }
     return self;
 }
@@ -236,7 +246,7 @@ static NSInteger const SECOND_COL_WIDTH = 170;
         [self.addFavoritesButton setTitle:@"Favor This App!" forState:UIControlStateNormal];
         self.addFavoritesButton.backgroundColor = [UIColor colorWithRed:0.5 green:0 blue:0 alpha:1 ];
         
-        [self postNotification];
+
     }
     else
     {
@@ -256,6 +266,8 @@ static NSInteger const SECOND_COL_WIDTH = 170;
         [self.addFavoritesButton setTitle:@"Unfavor App" forState:UIControlStateNormal];
         self.addFavoritesButton.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0.5 alpha:1];
     }
+    
+    [self postNotification];
 }
 
 
