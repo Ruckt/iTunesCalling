@@ -10,7 +10,7 @@
 #import "ELAppCell.h"
 
 
-@interface ELAppListTableVC : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+@interface ELAppListTableVC : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property UITableView *appListTableView;
 

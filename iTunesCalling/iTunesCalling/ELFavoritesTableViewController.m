@@ -25,33 +25,22 @@ static NSInteger const CELL_HEIGHT = 85;
 
 @implementation ELFavoritesTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        
-        self.dataStore = [ELDataStore sharedELDataStore];
-        [self setTitle:@"My Favorites"];
- 
-        self.favoritesTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-        self.favoritesTableView.delegate = self;
-        self.favoritesTableView.dataSource = self;
-                
-        [self.view addSubview:self.favoritesTableView];
-        
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveEvent:) name:@"UnFavored" object:nil];
-
-        
-    }
-    return self;
-}
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveEvent:) name:@"UnFavored" object:nil];
+
+    self.dataStore = [ELDataStore sharedELDataStore];
     self.favoriteApps = [self.dataStore fetchFavorites];
+    
+    self.favoritesTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.favoritesTableView.delegate = self;
+    self.favoritesTableView.dataSource = self;
+    
+    [self.view addSubview:self.favoritesTableView];
+
+    [self setTitle:@"My Favorites"];
+
 }
 
 - (void)receiveEvent:(NSNotification *)notification {
@@ -84,39 +73,37 @@ static NSInteger const CELL_HEIGHT = 85;
     return CELL_HEIGHT;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ELAppCell *favoriteCell = (ELAppCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     FavoriteApp *favoriteApp = [self.favoriteApps objectAtIndex:indexPath.row];
     
-    if (!favoriteCell) {
+    if (favoriteCell==nil) {
         favoriteCell = [[ELAppCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier favoriteApp:favoriteApp];
     }
     
     [favoriteCell configureCellWithFavoriteApp:favoriteApp];
+    favoriteCell.thumbnailImageView.image = nil;
     
+    dispatch_queue_t fetchQ = dispatch_queue_create("ConfigureCell", NULL);
+    dispatch_async(fetchQ, ^{
+        
+        NSURL *address = [NSURL URLWithString:favoriteApp.smallPictureURL];
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:address]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            ELAppCell *updateCell = (ELAppCell *)[tableView cellForRowAtIndexPath:indexPath];
+            if (updateCell) { // if nil then cell is not visible hence no need to update
+                updateCell.thumbnailImageView.image = image;
+            }
+        });
+    });
+
+
     return favoriteCell;
 }
 
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    ELAppCell *favoriteCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-//    
-//    [self configureCell:favoriteCell forIndexPath:indexPath];
-//    
-//    return favoriteCell;
-//}
-//
-//- (void)configureCell:(ELAppCell *)cell forIndexPath:(NSIndexPath *)indexPath
-//{
-//    FavoriteApp *favoriteApp = [self.favoriteApps objectAtIndex:indexPath.row];
-//    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-//        
-//        ELAppCell *appCell = (ELAppCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-//        appCell.pugImageView.image= self.images[indexPath];
-//        cell.pugImageView.image = self.images[indexPath];
-//    }];
-//}
 
 
  #pragma mark - Navigation
@@ -129,118 +116,6 @@ static NSInteger const CELL_HEIGHT = 85;
     ELSingleAppViewController *singleAppViewController = [[ELSingleAppViewController alloc] initWithFavoriteApp:selectedFavorite];
     [self.navigationController pushViewController:singleAppViewController animated:YES];
 }
-
-
-
-
-//- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
-//{
-//    FavoriteApp *favoriteApp = [self.dataStore.fetchedFavoriteResultsController objectAtIndexPath:indexPath];
-//    cell.textLabel.text = favoriteApp.name;
-//}
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
-
-//#pragma mark - NSFetchedResultsControllerDelegate Methods
-//
-//- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
-//{
-//    [self.tableView beginUpdates];
-//}
-//
-//
-//- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-//{
-//    [self.tableView endUpdates];
-//}
-//
-//
-//- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
-//           atIndex:(NSUInteger)sectionIndex
-//     forChangeType:(NSFetchedResultsChangeType)type
-//{
-//    switch(type) {
-//            
-//        case NSFetchedResultsChangeInsert:
-//            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-//            break;
-//            
-//        case NSFetchedResultsChangeDelete:
-//            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-//            break;
-//    }
-//}
-//
-//- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
-//       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
-//      newIndexPath:(NSIndexPath *)newIndexPath
-//{
-//    UITableView *tableView = self.tableView;
-//    
-//    switch(type) {
-//            
-//        case NSFetchedResultsChangeInsert:
-//            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
-//                             withRowAnimation:UITableViewRowAnimationFade];
-//            break;
-//            
-//        case NSFetchedResultsChangeDelete:
-//            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-//                             withRowAnimation:UITableViewRowAnimationFade];
-//            break;
-//            
-//        case NSFetchedResultsChangeUpdate:
-//            [self configureCell:[tableView cellForRowAtIndexPath:indexPath]
-//                    atIndexPath:indexPath];
-//            break;
-//            
-//        case NSFetchedResultsChangeMove:
-//            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-//                             withRowAnimation:UITableViewRowAnimationFade];
-//            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
-//                             withRowAnimation:UITableViewRowAnimationFade];
-//            break;
-//    }
-//}
-
 
 
 @end

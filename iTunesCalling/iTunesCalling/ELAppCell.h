@@ -19,5 +19,8 @@
 - (void)configureCellWithFavoriteApp:(FavoriteApp *)favoriteApp;
 
 @property(nonatomic, strong) UIImageView *thumbnailImageView;
+@property(nonatomic, strong) UILabel *appNameLabel;
+@property(nonatomic, strong) UILabel *appArtistLabel;
+
 
 @end

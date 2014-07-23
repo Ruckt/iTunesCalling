@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ELFavoritesTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+@interface ELFavoritesTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property UITableView *favoritesTableView;
 

@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--App List TableVC - Root View Controller-->
+        <!--Table View Controller - Root View Controller-->
         <scene sceneID="DSF-Cm-Dvl">
             <objects>
-                <tableViewController id="rRD-uM-aVw" customClass="ELAppListTableVC" sceneMemberID="viewController">
+                <tableViewController id="rRD-uM-aVw" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Root View Controller" id="nG4-oE-30e"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                 </tableViewController>

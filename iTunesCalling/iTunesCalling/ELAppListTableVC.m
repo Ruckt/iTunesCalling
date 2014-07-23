@@ -26,38 +26,33 @@ static NSInteger const CELL_HEIGHT = 85;
 
 @implementation ELAppListTableVC
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (void)viewDidLoad
 {
-    self = [super initWithStyle:style];
-    if (self) {
-        
-        self.dataStore = [ELDataStore sharedELDataStore];
-        self.appListTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-        
-        self.appListTableView.delegate = self;
-        self.appListTableView.dataSource = self;
-        self.FetchComplete = NO;
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveEvent:) name:@"FetchComplete" object:nil];
+    [super viewDidLoad];
     
-        [self setTitle:@"Top Apps"];
-        
- 
-        
-        [self createAppEntryPlaceHolder];
-        self.appEntries = [self buildDataArray];
-        
-        UIBarButtonItem *favoriteButton = [[UIBarButtonItem alloc] initWithTitle:@"Favorites" style:UIBarButtonItemStyleBordered target:self action:@selector(showFavorites)];
-        self.navigationItem.rightBarButtonItem=favoriteButton;
-        
-        [self.view addSubview:self.appListTableView];
-        
-    }
-    return self;
+    self.dataStore = [ELDataStore sharedELDataStore];
+    self.appListTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    
+    self.appListTableView.delegate = self;
+    self.appListTableView.dataSource = self;
+    self.FetchComplete = NO;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveEvent:) name:@"FetchComplete" object:nil];
+    
+    [self createAppEntryPlaceHolder];
+    self.appEntries = [self buildDataArray];
+    
+    UIBarButtonItem *favoriteButton = [[UIBarButtonItem alloc] initWithTitle:@"Favorites" style:UIBarButtonItemStyleBordered target:self action:@selector(showFavorites)];
+    self.navigationItem.rightBarButtonItem=favoriteButton;
+    
+    [self.view addSubview:self.appListTableView];
+    
+    [self setTitle:@"Top Apps"];
+    
 }
 
 
--(BOOL)shouldAutorotate {
-    return NO;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 
@@ -69,10 +64,6 @@ static NSInteger const CELL_HEIGHT = 85;
     self.appEntries = [self buildDataArray];
     [self.appListTableView reloadData];
 }
-
-//- (void)dealloc {
-//    [[NSNotificationCenter defaultCenter] removeObserver:self];
-//}
 
 
 #pragma mark - Table view data source
@@ -159,29 +150,15 @@ static NSInteger const CELL_HEIGHT = 85;
 }
 
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 #pragma mark - Navigation
 
 - (void)showFavorites
 {
-    ELFavoritesTableViewController *favoriteTableVC = [[ELFavoritesTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    ELFavoritesTableViewController *favoriteTableVC = [[ELFavoritesTableViewController alloc] init];
     [favoriteTableVC.favoritesTableView reloadData];
     [self.navigationController pushViewController:favoriteTableVC animated:YES];
     
-    
-    
 }
-
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -198,8 +175,6 @@ static NSInteger const CELL_HEIGHT = 85;
     ELSingleAppViewController *singleAppViewController = [[ELSingleAppViewController alloc] initWithAppEntry:appEntry];
     [self.navigationController pushViewController:singleAppViewController animated:YES];
 }
-
-
 
 
 @end

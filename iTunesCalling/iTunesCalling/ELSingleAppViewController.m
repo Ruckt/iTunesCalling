@@ -255,13 +255,11 @@ static NSInteger const SECOND_COL_WIDTH = 170;
         NSLog(@"Favorite Apps: %@", self.dataStore.favoriteAppArray);
         [self.addFavoritesButton setTitle:@"Unfavor App" forState:UIControlStateNormal];
         self.addFavoritesButton.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0.5 alpha:1];
-
     }
-
 }
 
 
-- (void)postNotification //post notification method and logic
+- (void)postNotification
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"UnFavored" object:nil];
 }

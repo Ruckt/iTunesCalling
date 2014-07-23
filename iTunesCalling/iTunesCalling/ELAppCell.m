@@ -11,32 +11,36 @@
 
 static NSInteger const SPACE_BETWEEN = 10;
 static NSInteger const TITLE_LABEL_WIDTH = 242;//337;
+static NSInteger const THUMBNAIL_Y_COORDINATE = 15;
 static NSInteger const THUMBNAIL_LENGTH = 53;
+static NSInteger const NAME_LABEL_HEIGHT = 55;
+static NSInteger const NAME_Y_COORDINATE = 5;
 static NSInteger const ARTIST_LABEL_HEIGHT = 15;
-static NSInteger const ARTIST_Y_COORDINATE = 65;
+static NSInteger const ARTIST_Y_COORDINATE = 60;
 
 @interface ELAppCell()
 
-@property(nonatomic, strong) UILabel *appNameLabel;
-@property(nonatomic, strong) UILabel *appArtistLabel;
 
 
 @end
 
 @implementation ELAppCell
 
+
+#pragma mark - App Entry Cell Configuration
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier appEntry:(AppEntry *)appEntry
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
 
-        self.appNameLabel = [self buildAppNameLabel:appEntry.name];
-        self.thumbnailImageView = [self buildThumbnailImageView];
-        self.appArtistLabel = [self buildAppArtistLabel:appEntry.artist];
+        [self buildAppNameLabel:appEntry.name];
+        [self buildThumbnailImageView];
+        [self buildAppArtistLabel:appEntry.artist];
         
-        [self.contentView addSubview:self.appNameLabel];
-        [self.contentView addSubview:self.thumbnailImageView];
-        [self.contentView addSubview:self.appArtistLabel];
+        [self addSubview:self.appNameLabel];
+        [self addSubview:self.thumbnailImageView];
+        [self addSubview:self.appArtistLabel];
     }
     return self;
 }
@@ -46,19 +50,21 @@ static NSInteger const ARTIST_Y_COORDINATE = 65;
     self.appArtistLabel.text = [NSString stringWithFormat:@"By %@", appEntry.artist];
 }
 
-#pragma mark - Favorite App Cell
+
+#pragma mark - Favorite App Cell Configuration
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier favoriteApp:(FavoriteApp *)favoriteApp
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
-        self.appNameLabel = [self buildAppNameLabel:favoriteApp.name];
-        self.thumbnailImageView = [self buildThumbnailImageView];
-        self.appArtistLabel = [self buildAppArtistLabel:favoriteApp.artist];
+        [self buildAppNameLabel:favoriteApp.name];
+        [self buildThumbnailImageView];
+        [self buildAppArtistLabel:favoriteApp.artist];
         
-        [self.contentView addSubview:self.appNameLabel];
-        [self.contentView addSubview:self.thumbnailImageView];
-        [self.contentView addSubview:self.appArtistLabel];
+        [self addSubview:self.appNameLabel];
+        [self addSubview:self.thumbnailImageView];
+        [self addSubview:self.appArtistLabel];
     }
     return self;
 }
@@ -70,56 +76,34 @@ static NSInteger const ARTIST_Y_COORDINATE = 65;
 }
 
 
+
 #pragma mark - Cell Construction
 
--(UILabel *)buildAppNameLabel: (NSString *)appName
+-(void)buildAppNameLabel: (NSString *)appName
 {
-    UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(SPACE_BETWEEN, SPACE_BETWEEN, TITLE_LABEL_WIDTH, 0)];
-    nameLabel.text = appName;
-    nameLabel.font = [UIFont fontWithName:@"Palatino-Bold" size:18];
-    nameLabel.numberOfLines = 2;
-    [nameLabel setLineBreakMode:NSLineBreakByWordWrapping];
-    [nameLabel sizeToFit];
-    
-    return nameLabel;
+    self.appNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(SPACE_BETWEEN, NAME_Y_COORDINATE, TITLE_LABEL_WIDTH, NAME_LABEL_HEIGHT)];
+    self.appNameLabel.text = appName;
+    self.appNameLabel.font = [UIFont fontWithName:@"Palatino-Bold" size:18];
+    self.appNameLabel.numberOfLines = 2;
+    [self.appNameLabel setLineBreakMode:NSLineBreakByWordWrapping];
 }
 
--(UILabel *)buildAppArtistLabel: (NSString *)artist
+-(void)buildAppArtistLabel: (NSString *)artist
 {
     CGFloat labelWidth = self.frame.size.width - 20;
     
-    UILabel *artistLabel = [[UILabel alloc] initWithFrame:CGRectMake(SPACE_BETWEEN, ARTIST_Y_COORDINATE, labelWidth, ARTIST_LABEL_HEIGHT)];
-    artistLabel.font = [UIFont fontWithName:@"Palatino" size:13];
-    artistLabel.numberOfLines = 1;
-    artistLabel.text = [NSString stringWithFormat:@"By %@", artist];
-    
-    return artistLabel;
+    self.appArtistLabel = [[UILabel alloc] initWithFrame:CGRectMake(SPACE_BETWEEN, ARTIST_Y_COORDINATE, labelWidth, ARTIST_LABEL_HEIGHT)];
+    self.appArtistLabel.font = [UIFont fontWithName:@"Palatino" size:13];
+    self.appArtistLabel.numberOfLines = 1;
+    self.appArtistLabel.text = [NSString stringWithFormat:@"By %@", artist];
 }
 
--(UIImageView *)buildThumbnailImageView
+-(void)buildThumbnailImageView
 {
     CGFloat imageX = self.frame.size.width - (THUMBNAIL_LENGTH + SPACE_BETWEEN);
     
-    UIImageView *thumbnailImageView = [[UIImageView alloc] initWithFrame:CGRectMake(imageX, SPACE_BETWEEN, THUMBNAIL_LENGTH, THUMBNAIL_LENGTH)];
-    
-    return thumbnailImageView;
+    self.thumbnailImageView = [[UIImageView alloc] initWithFrame:CGRectMake(imageX, THUMBNAIL_Y_COORDINATE, THUMBNAIL_LENGTH, THUMBNAIL_LENGTH)];
 }
 
-
-
-
-
-- (void)awakeFromNib
-{
-//    self.appName.text = @"waiting waiting";
-//    NSLog(@"Cell cell");
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 @end
